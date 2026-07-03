@@ -1,0 +1,75 @@
+export const fontFamilies = {
+  heading: "var(--font-playfair), 'Playfair Display', Georgia, serif",
+  body: "var(--font-jost), 'Jost', system-ui, sans-serif",
+  signature: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
+} as const;
+
+export const textStyles = {
+  display: {
+    fontFamily: fontFamilies.heading,
+    fontWeight: 500,
+    letterSpacing: "0.02em",
+    lineHeight: 1.15,
+    color: "oiva.cocoa",
+  },
+  displayLarge: {
+    fontFamily: fontFamilies.heading,
+    fontSize: { base: "2.5rem", md: "3rem", lg: "3.5rem" },
+    fontWeight: 500,
+    letterSpacing: "0.04em",
+    lineHeight: 1.15,
+    color: "oiva.cocoa",
+  },
+  subhead: {
+    fontFamily: fontFamilies.heading,
+    fontSize: { base: "1.75rem", md: "1.875rem" },
+    fontWeight: 500,
+    letterSpacing: "0.02em",
+    lineHeight: 1.25,
+    color: "oiva.cocoa",
+  },
+  signature: {
+    fontFamily: fontFamilies.signature,
+    fontStyle: "italic",
+    fontWeight: 400,
+    color: "oiva.cocoa",
+  },
+  signatureLarge: {
+    fontFamily: fontFamilies.signature,
+    fontStyle: "italic",
+    fontSize: { base: "1.375rem", md: "1.5rem" },
+    fontWeight: 400,
+    lineHeight: 1.35,
+    color: "oiva.cocoa",
+  },
+  body: {
+    fontFamily: fontFamilies.body,
+    fontSize: "1rem",
+    fontWeight: 300,
+    lineHeight: 1.75,
+    color: "oiva.ink",
+  },
+  label: {
+    fontFamily: fontFamilies.body,
+    fontSize: "0.6875rem",
+    fontWeight: 500,
+    letterSpacing: "0.2em",
+    textTransform: "uppercase" as const,
+    color: "oiva.cocoa",
+  },
+  caption: {
+    fontFamily: fontFamilies.body,
+    fontSize: "0.8125rem",
+    fontWeight: 300,
+    lineHeight: 1.5,
+    color: "oiva.taupe",
+  },
+  navLink: {
+    fontFamily: fontFamilies.body,
+    fontSize: "0.6875rem",
+    fontWeight: 500,
+    letterSpacing: "0.15em",
+    textTransform: "uppercase" as const,
+    color: "oiva.cocoa",
+  },
+} as const;
