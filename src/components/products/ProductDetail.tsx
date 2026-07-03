@@ -85,7 +85,14 @@ export function ProductDetail({ product }: ProductDetailProps) {
               >
                 {product.name}
               </Text>
-              <Text fontSize={{ base: "md", md: "lg" }} color="oiva.cocoa">
+              <Text
+                fontFamily="var(--font-jost), 'Jost', sans-serif"
+                fontSize={{ base: "lg", md: "xl" }}
+                fontWeight={500}
+                color="oiva.cocoa"
+                letterSpacing="0.02em"
+                sx={{ fontVariantNumeric: "tabular-nums" }}
+              >
                 {formatPrice(product.price)}
               </Text>
               <Text textStyle="body">{product.description}</Text>

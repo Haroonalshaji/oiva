@@ -54,7 +54,14 @@ export function ProductCard({ product, index = 0, priority = false }: ProductCar
             {product.name}
           </Text>
           <Text textStyle="caption">{product.material}</Text>
-          <Text fontFamily="var(--font-jost), 'Jost', sans-serif" fontSize="sm" color="oiva.cocoa">
+          <Text
+            fontFamily="var(--font-jost), 'Jost', sans-serif"
+            fontSize={{ base: "sm", md: "md" }}
+            fontWeight={500}
+            color="oiva.cocoa"
+            letterSpacing="0.01em"
+            sx={{ fontVariantNumeric: "tabular-nums" }}
+          >
             {formatPrice(product.price)}
           </Text>
         </VStack>

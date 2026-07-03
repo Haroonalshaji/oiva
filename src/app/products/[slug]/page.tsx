@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ProductDetail } from "@/components/products/ProductDetail";
 import { getProduct, products } from "@/data/products";
 import { createPageMetadata } from "@/lib/seo";
+import { formatPrice } from "@/lib/utils";
 import { productImage } from "@/lib/images";
 
 interface Props {
@@ -19,7 +20,7 @@ export function generateMetadata({ params }: Props): Metadata {
 
   return createPageMetadata({
     title: product.name,
-    description: `${product.description} ${product.material}. ${product.price} EUR.`,
+    description: `${product.description} ${product.material}. ${formatPrice(product.price)}.`,
     path: `/products/${product.slug}`,
     image: productImage(product.slug, 0),
   });
