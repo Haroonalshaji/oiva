@@ -48,16 +48,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const comingSoon = siteConfig.comingSoon;
+
   return (
     <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${jost.variable}`}>
       <body>
         <Providers>
           <Box minH="100vh" display="flex" flexDirection="column" bg="oiva.ivory">
-            <Header />
+            {!comingSoon && <Header />}
             <Box as="main" flex={1}>
               {children}
             </Box>
-            <Footer />
+            {!comingSoon && <Footer />}
           </Box>
         </Providers>
       </body>
