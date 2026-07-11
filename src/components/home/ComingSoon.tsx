@@ -46,34 +46,17 @@ export function ComingSoon() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <Text
-              fontFamily="var(--font-cormorant), 'Cormorant Garamond', serif"
-              fontStyle="italic"
-              fontSize={{ base: "1.75rem", md: "2.25rem" }}
-              color="oiva.blush"
-              lineHeight={1}
-            >
-              the
-              <Text
-                as="span"
-                fontFamily="var(--font-playfair), 'Playfair Display', serif"
-                fontStyle="normal"
-                fontWeight={500}
-                letterSpacing="0.18em"
-                color="oiva.ivory"
-                ml={3}
-              >
-                OIVA
-              </Text>
-            </Text>
+            <Box position="relative" w={{ base: "220px", md: "280px" }} mx="auto" aspectRatio={1024 / 375}>
+              <Image
+                src="/logo/oivah-no-bg.svg"
+                alt="OIVAH"
+                fill
+                priority
+                sizes="(max-width: 768px) 220px, 280px"
+                style={{ objectFit: "contain" }}
+              />
+            </Box>
           </motion.div>
-
-          <motion.div
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={{ scaleX: 1, opacity: 0.7 }}
-            transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
-            style={{ width: 40, height: 1, background: "#E8D9C0", transformOrigin: "center" }}
-          />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -133,8 +116,8 @@ export function ComingSoon() {
               fontFamily="var(--font-jost), 'Jost', sans-serif"
               fontSize="0.6875rem"
               fontWeight={500}
-              letterSpacing="0.2em"
-              textTransform="uppercase"
+              letterSpacing="0.12em"
+              textTransform="none"
               color="oiva.ivory"
               borderBottom="1px solid"
               borderColor="oiva.champagne"

@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     description: defaultDescription,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    images: [{ url: "/logo/oiva-logo-square.png", width: 600, height: 600 }],
+    images: [{ url: "/logo/oivah-no-bg.svg", width: 600, height: 600 }],
     locale: "en_GB",
     type: "website",
   },
