@@ -16,7 +16,7 @@ export function createPageMetadata({
   title,
   description,
   path,
-  image = "/logo/oiva-logo-square.png",
+  image = "/logo/oivah-lockup-og.png",
   type = "website",
 }: PageMetadataOptions): Metadata {
   const url = `${siteConfig.url}${path}`;

@@ -12,7 +12,6 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 import NextLink from "next/link";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
@@ -64,17 +63,17 @@ export function Header() {
                 as={NextLink}
                 href="/"
                 onClick={onClose}
-                aria-label="the OIVA home"
+                aria-label="Oivah Feminine Atelier home"
                 display="inline-block"
-                h={{ base: "48px", md: "56px" }}
+                h={{ base: "56px", md: "68px" }}
               >
-                <Image
-                  src="/logo/oiva-logo-primary.png"
-                  alt="the OIVA"
-                  width={220}
-                  height={80}
-                  priority
-                  style={{ height: "100%", width: "auto" }}
+                <Box
+                  as="img"
+                  src="/logo/oivah-lockup-dark.svg"
+                  alt="Oivah Feminine Atelier"
+                  h="100%"
+                  w="auto"
+                  display="block"
                 />
               </Link>
             </Box>

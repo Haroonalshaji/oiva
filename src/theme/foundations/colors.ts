@@ -4,6 +4,7 @@ export const oivaColors = {
   champagne: "#E8D9C0",
   beige: "#D9C7B3",
   blush: "#E4CFC2",
+  gold: "#F6C8A3",
   taupe: "#A8927E",
   rose: "#B98D78",
   cocoa: "#4A382C",

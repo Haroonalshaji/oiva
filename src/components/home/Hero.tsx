@@ -8,7 +8,7 @@ import { imageConfig } from "@/lib/images";
 
 export function Hero() {
   return (
-    <Box as="section" position="relative" minH={{ base: "85vh", md: "92vh" }} mt={{ base: "72px", md: "88px" }} display="flex" alignItems="flex-end">
+    <Box as="section" position="relative" minH={{ base: "85vh", md: "92vh" }} mt={{ base: "80px", md: "100px" }} display="flex" alignItems="flex-end">
       <Box position="absolute" inset={0} zIndex={0}>
         <Image
           src={imageConfig.hero.src}

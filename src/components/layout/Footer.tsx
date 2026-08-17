@@ -14,7 +14,6 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import Image from "next/image";
 import NextLink from "next/link";
 import { useState } from "react";
 import { navItems, siteConfig } from "@/data/site";
@@ -42,12 +41,14 @@ export function Footer() {
           >
             <GridItem colSpan={{ base: 1, sm: 2, lg: 1 }}>
               <VStack align="flex-start" spacing={6}>
-                <Image
-                  src="/logo/oiva-logo-reversed.png"
-                  alt="the OIVA"
-                  width={150}
-                  height={55}
-                  style={{ height: "auto", maxHeight: "44px", width: "auto" }}
+                <Box
+                  as="img"
+                  src="/logo/oivah-lockup.svg"
+                  alt="Oivah Feminine Atelier"
+                  h="72px"
+                  w="auto"
+                  maxW="180px"
+                  display="block"
                 />
                 <Text
                   fontFamily="var(--font-cormorant), 'Cormorant Garamond', serif"

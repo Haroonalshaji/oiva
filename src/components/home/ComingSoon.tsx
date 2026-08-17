@@ -21,12 +21,12 @@ export function ComingSoon() {
         <Box
           position="absolute"
           inset={0}
-          bg="linear-gradient(135deg, rgba(46,33,25,0.72) 0%, rgba(74,56,44,0.55) 45%, rgba(185,141,120,0.35) 100%)"
+          bg="linear-gradient(135deg, rgba(46,33,25,0.78) 0%, rgba(58,40,32,0.62) 48%, rgba(246,200,163,0.30) 100%)"
         />
         <Box
           position="absolute"
           inset={0}
-          bg="radial-gradient(ellipse at 30% 40%, rgba(251,246,238,0.08) 0%, transparent 55%)"
+          bg="radial-gradient(ellipse at 50% 38%, rgba(246,200,163,0.14) 0%, transparent 58%)"
         />
       </Box>
 
@@ -40,22 +40,21 @@ export function ComingSoon() {
         px={{ base: 6, md: 10 }}
         py={{ base: 16, md: 20 }}
       >
-        <VStack spacing={{ base: 8, md: 10 }} maxW="560px" textAlign="center">
+        <VStack spacing={{ base: 6, md: 8 }} maxW="560px" textAlign="center">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <Box position="relative" w={{ base: "220px", md: "280px" }} mx="auto" aspectRatio={1024 / 375}>
-              <Image
-                src="/logo/oivah-no-bg.svg"
-                alt="OIVAH"
-                fill
-                priority
-                sizes="(max-width: 768px) 220px, 280px"
-                style={{ objectFit: "contain" }}
-              />
-            </Box>
+            <Box
+              as="img"
+              src="/logo/oivah-lockup.svg"
+              alt="Oivah Feminine Atelier"
+              w={{ base: "168px", md: "200px" }}
+              h="auto"
+              mx="auto"
+              display="block"
+            />
           </motion.div>
 
           <motion.div
@@ -69,7 +68,7 @@ export function ComingSoon() {
               fontWeight={500}
               letterSpacing="0.28em"
               textTransform="uppercase"
-              color="oiva.champagne"
+              color="oiva.gold"
               mb={5}
             >
               Coming soon
@@ -97,7 +96,7 @@ export function ComingSoon() {
               fontWeight={300}
               fontSize={{ base: "md", md: "lg" }}
               lineHeight={1.75}
-              color="oiva.blush"
+              color="oiva.gold"
               maxW="420px"
               mx="auto"
             >
@@ -118,11 +117,11 @@ export function ComingSoon() {
               fontWeight={500}
               letterSpacing="0.12em"
               textTransform="none"
-              color="oiva.ivory"
+              color="oiva.gold"
               borderBottom="1px solid"
-              borderColor="oiva.champagne"
+              borderColor="oiva.gold"
               pb={1}
-              _hover={{ color: "oiva.blush", textDecoration: "none", borderColor: "oiva.blush" }}
+              _hover={{ color: "oiva.ivory", textDecoration: "none", borderColor: "oiva.ivory" }}
               transition="color 0.25s ease, border-color 0.25s ease"
             >
               {siteConfig.email}
