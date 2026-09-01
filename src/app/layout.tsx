@@ -38,6 +38,9 @@ export const metadata: Metadata = {
   },
   description: defaultDescription,
   keywords: [...seoKeywords],
+  verification: {
+    google: "rMhbaoDKoyThEYAwQGBWuN1FYggXI7fVzxFlmplD4pc",
+  },
   openGraph: {
     title: siteConfig.name,
     description: defaultDescription,
