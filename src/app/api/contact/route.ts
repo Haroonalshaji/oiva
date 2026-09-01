@@ -13,6 +13,7 @@ const topicLabels: Record<string, string> = {
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phonePattern = /^[+]?[\d\s()-]{7,20}$/;
 
 function sanitize(value: unknown, maxLength: number): string {
   if (typeof value !== "string") return "";
@@ -24,6 +25,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const name = sanitize(body.name, 120);
     const email = sanitize(body.email, 254);
+    const phone = sanitize(body.phone, 20);
     const topic = sanitize(body.topic, 32);
     const message = sanitize(body.message, 5000);
 
@@ -35,6 +37,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
     }
 
+    if (phone && !phonePattern.test(phone)) {
+      return NextResponse.json({ error: "Invalid phone number" }, { status: 400 });
+    }
+
     const topicLabel = topicLabels[topic] ?? topicLabels.general;
     const from =
       process.env.CONTACT_FROM_EMAIL ?? `${siteConfig.name} Contact <onboarding@resend.dev>`;
@@ -44,7 +50,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Email service is not configured" }, { status: 503 });
     }
 
-    const emailContent = { name, email, topicLabel, message };
+    const emailContent = { name, email, phone, topicLabel, message };
 
     const { error } = await resend.emails.send({
       from,

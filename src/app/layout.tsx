@@ -5,7 +5,8 @@ import { Providers } from "@/components/providers/Providers";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/data/site";
-import { defaultDescription } from "@/lib/seo";
+import { defaultDescription, seoKeywords } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -36,13 +37,14 @@ export const metadata: Metadata = {
     template: `%s · ${siteConfig.name}`,
   },
   description: defaultDescription,
+  keywords: [...seoKeywords],
   openGraph: {
     title: siteConfig.name,
     description: defaultDescription,
     url: siteConfig.url,
     siteName: siteConfig.name,
     images: [{ url: "/logo/oivah-lockup-og.png", width: 696, height: 502 }],
-    locale: "en_GB",
+    locale: "en_IN",
     type: "website",
   },
 };
@@ -53,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${jost.variable}`}>
       <body>
+        <JsonLd />
         <Providers>
           <Box minH="100vh" display="flex" flexDirection="column" bg="oiva.ivory">
             {!comingSoon && <Header />}

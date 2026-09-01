@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { siteConfig, brandStatement } from "@/data/site";
+import { siteConfig, brandStatement, seoKeywords } from "@/data/site";
 
 const defaultDescription =
-  "Quiet-luxury contemporary womenswear. Parisian couture sensibility meets Scandinavian restraint.";
+  "OIVAH — online ladies store for quiet-luxury womenswear in India. Shop cotton kurtas, tunics, shirts and maxi dresses. Order via WhatsApp from Palakkad, Kerala.";
 
 interface PageMetadataOptions {
   title: string;
@@ -10,6 +10,11 @@ interface PageMetadataOptions {
   path: string;
   image?: string;
   type?: "website" | "article";
+  keywords?: string[];
+}
+
+function mergeKeywords(extra: string[] = []): string[] {
+  return Array.from(new Set([...seoKeywords, ...extra]));
 }
 
 export function createPageMetadata({
@@ -18,12 +23,15 @@ export function createPageMetadata({
   path,
   image = "/logo/oivah-lockup-og.png",
   type = "website",
+  keywords = [],
 }: PageMetadataOptions): Metadata {
   const url = `${siteConfig.url}${path}`;
+  const allKeywords = mergeKeywords(keywords);
 
   return {
     title,
     description,
+    keywords: allKeywords,
     alternates: { canonical: path },
     openGraph: {
       title: `${title} · ${siteConfig.name}`,
@@ -31,7 +39,7 @@ export function createPageMetadata({
       url,
       siteName: siteConfig.name,
       images: [{ url: image, width: 600, height: 600, alt: siteConfig.name }],
-      locale: "en_GB",
+      locale: "en_IN",
       type,
     },
     twitter: {
@@ -45,34 +53,60 @@ export function createPageMetadata({
 
 export const seo = {
   home: createPageMetadata({
-    title: "Quiet-luxury contemporary womenswear",
+    title: "Online ladies store — quiet-luxury womenswear",
     description: brandStatement,
     path: "/",
+    keywords: [
+      "shop women's clothing online",
+      "ladies online shopping Kerala",
+      "buy cotton kurta online India",
+    ],
   }),
   products: createPageMetadata({
-    title: "The collection",
+    title: "Women's clothing collection — shop online",
     description:
-      "Explore the OIVA collection — silk, wool, linen, and cashmere pieces designed to anchor a considered wardrobe.",
+      "Shop women's clothing online at OIVAH — cotton kurtas, tunics, shirts and maxi dresses. An online ladies store for contemporary cotton womenswear, available across India.",
     path: "/products",
+    keywords: [
+      "women's collection online",
+      "ladies dresses online",
+      "cotton tops for women",
+      "buy maxi dress online",
+    ],
   }),
   about: createPageMetadata({
-    title: "About",
+    title: "About OIVAH — Kerala ladies boutique",
     description:
-      "The story behind the OIVA — quiet luxury, editorial poise, Parisian craftsmanship, and the meaning of intentional making.",
+      "OIVAH is an online ladies store and atelier in Cherpulassery, Palakkad, Kerala — quiet luxury womenswear, cotton kurtas and contemporary ladies wear made with intention.",
     path: "/about",
+    keywords: [
+      "Kerala ladies boutique",
+      "women's clothing brand India",
+      "Palakkad womenswear atelier",
+    ],
   }),
   journal: createPageMetadata({
-    title: "The journal",
+    title: "Journal — style, craft & quiet living",
     description:
-      "Notes on craft, style, and quiet living — essays on materials, making, and building a considered wardrobe.",
+      "Notes on women's style, cotton craft and quiet living from OIVAH — an online ladies store for contemporary womenswear in India.",
     path: "/journal",
+    keywords: [
+      "women's fashion blog India",
+      "ladies style tips",
+      "womenswear craft stories",
+    ],
   }),
   contact: createPageMetadata({
-    title: "Contact",
+    title: "Contact — order & enquiries",
     description:
-      "Get in touch with the OIVA — studio visits, order enquiries, press, and collaborations. Paris atelier, Tuesday through Saturday.",
+      "Contact OIVAH online ladies store — order women's clothing via WhatsApp or email. Studio in Cherpulassery, Palakkad, Kerala. Ladies wear enquiries welcome.",
     path: "/contact",
+    keywords: [
+      "order ladies wear online",
+      "WhatsApp clothing order Kerala",
+      "OIVAH contact number",
+    ],
   }),
 } as const;
 
-export { defaultDescription };
+export { defaultDescription, seoKeywords, mergeKeywords };

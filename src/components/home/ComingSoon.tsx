@@ -110,8 +110,9 @@ export function ComingSoon() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
           >
-            <Link
-              href={`mailto:${siteConfig.email}`}
+            <VStack spacing={3}>
+              <Link
+                href={`mailto:${siteConfig.email}`}
               fontFamily="var(--font-jost), 'Jost', sans-serif"
               fontSize="0.6875rem"
               fontWeight={500}
@@ -126,6 +127,25 @@ export function ComingSoon() {
             >
               {siteConfig.email}
             </Link>
+            <Link
+              href={`tel:${siteConfig.phone}`}
+              fontFamily="var(--font-jost), 'Jost', sans-serif"
+              fontSize="0.6875rem"
+              fontWeight={500}
+              letterSpacing="0.12em"
+              textTransform="none"
+              color="oiva.gold"
+              borderBottom="1px solid"
+              borderColor="oiva.gold"
+              pb={1}
+              mt={3}
+              display="inline-block"
+              _hover={{ color: "oiva.ivory", textDecoration: "none", borderColor: "oiva.ivory" }}
+              transition="color 0.25s ease, border-color 0.25s ease"
+            >
+              {siteConfig.phone}
+            </Link>
+            </VStack>
           </motion.div>
         </VStack>
       </Flex>

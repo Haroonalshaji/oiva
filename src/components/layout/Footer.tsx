@@ -17,6 +17,7 @@ import {
 import NextLink from "next/link";
 import { useState } from "react";
 import { navItems, siteConfig } from "@/data/site";
+import { getTelUrl } from "@/lib/order-contact";
 import { FadeIn } from "@/components/shared/FadeIn";
 
 export function Footer() {
@@ -91,6 +92,9 @@ export function Footer() {
                 <Link href={`mailto:${siteConfig.email}`} color="oiva.ivory" fontWeight={300} fontSize="sm">
                   {siteConfig.email}
                 </Link>
+                <Link href={getTelUrl()} color="oiva.ivory" fontWeight={300} fontSize="sm">
+                  {siteConfig.phone}
+                </Link>
                 <Text fontWeight={300} fontSize="sm" color="oiva.champagne">
                   {siteConfig.address}
                 </Text>
@@ -152,7 +156,7 @@ export function Footer() {
             &copy; the OIVA, {new Date().getFullYear()}. All rights reserved.
           </Text>
           <Text textStyle="label" color="oiva.taupe" fontSize="0.625rem">
-            Paris &middot; Crafted with intention
+            Palakkad, Kerala &middot; Crafted with intention
           </Text>
         </Flex>
       </Container>

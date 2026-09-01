@@ -16,6 +16,7 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import { productImage } from "@/lib/images";
+import { openProductOrder } from "@/lib/order-contact";
 import { formatPrice } from "@/lib/utils";
 import type { Product } from "@/types";
 import { FadeIn } from "@/components/shared/FadeIn";
@@ -26,11 +27,9 @@ interface ProductDetailProps {
 
 export function ProductDetail({ product }: ProductDetailProps) {
   const [size, setSize] = useState(product.sizes[1] ?? product.sizes[0]);
-  const [added, setAdded] = useState(false);
 
   const handleAddToBag = () => {
-    setAdded(true);
-    setTimeout(() => setAdded(false), 2500);
+    openProductOrder(product, size);
   };
 
   return (
@@ -137,7 +136,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
               </Box>
 
               <Button w="full" size="lg" onClick={handleAddToBag}>
-                {added ? "Added to bag" : "Add to bag"}
+                Add to bag
               </Button>
 
               <Divider borderColor="oiva.hairline" my={2} />

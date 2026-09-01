@@ -15,6 +15,7 @@ const colors = {
 interface ContactEmailContent {
   name: string;
   email: string;
+  phone: string;
   topicLabel: string;
   message: string;
 }
@@ -22,6 +23,7 @@ interface ContactEmailContent {
 export function buildContactEmailText({
   name,
   email,
+  phone,
   topicLabel,
   message,
 }: ContactEmailContent): string {
@@ -30,25 +32,38 @@ export function buildContactEmailText({
     "",
     `Name: ${name}`,
     `Email: ${email}`,
+    phone ? `Phone: ${phone}` : null,
     `Topic: ${topicLabel}`,
     "",
     "Message:",
     message,
     "",
     `Reply directly to ${email} to respond.`,
-  ].join("\n");
+  ]
+    .filter(Boolean)
+    .join("\n");
 }
 
 export function buildContactEmailHtml({
   name,
   email,
+  phone,
   topicLabel,
   message,
 }: ContactEmailContent): string {
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
+  const safePhone = phone ? escapeHtml(phone) : "";
   const safeTopic = escapeHtml(topicLabel);
   const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
+  const phoneRow = phone
+    ? `<tr>
+                  <td style="padding:16px 20px;border-bottom:1px solid ${colors.hairline};">
+                    <p style="margin:0 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:${colors.taupe};">Phone</p>
+                    <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:${colors.cocoa};">${safePhone}</p>
+                  </td>
+                </tr>`
+    : "";
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -103,6 +118,7 @@ export function buildContactEmailHtml({
                     </p>
                   </td>
                 </tr>
+                ${phoneRow}
                 <tr>
                   <td style="padding:16px 20px;border-bottom:1px solid ${colors.hairline};">
                     <p style="margin:0 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:${colors.taupe};">Topic</p>
@@ -128,7 +144,7 @@ export function buildContactEmailHtml({
           <tr>
             <td style="padding:16px 32px;background-color:${colors.cocoaDeep};text-align:center;">
               <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:${colors.champagne};">
-                ${escapeHtml(siteConfig.email)} · ${escapeHtml(siteConfig.url.replace(/^https?:\/\//, ""))}
+                ${escapeHtml(siteConfig.email)} · ${escapeHtml(siteConfig.phone)} · ${escapeHtml(siteConfig.url.replace(/^https?:\/\//, ""))}
               </p>
             </td>
           </tr>

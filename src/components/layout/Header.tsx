@@ -17,11 +17,13 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { TbShoppingBag } from "react-icons/tb";
 import { navItems } from "@/data/site";
+import { buildWhatsAppUrl } from "@/lib/order-contact";
 
 export function Header() {
   const pathname = usePathname();
   const { isOpen, onToggle, onClose } = useDisclosure();
   const isHome = pathname === "/";
+  const orderWhatsAppUrl = buildWhatsAppUrl("Hi, I'd like to place an order.");
 
   useEffect(() => {
     onClose();
@@ -93,7 +95,11 @@ export function Header() {
                 </Link>
               ))}
               <IconButton
-                aria-label="Shopping bag"
+                as="a"
+                href={orderWhatsAppUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Order via WhatsApp"
                 icon={<TbShoppingBag size={18} strokeWidth={1.5} />}
                 variant="ghost"
                 color="oiva.cocoa"
@@ -105,7 +111,11 @@ export function Header() {
 
             <HStack spacing={4} display={{ base: "flex", lg: "none" }}>
               <IconButton
-                aria-label="Shopping bag"
+                as="a"
+                href={orderWhatsAppUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Order via WhatsApp"
                 icon={<TbShoppingBag size={18} strokeWidth={1.5} />}
                 variant="ghost"
                 color="oiva.cocoa"

@@ -8,6 +8,7 @@ import {
   FormLabel,
   Grid,
   Input,
+  Link,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -23,18 +24,19 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import { imageConfig } from "@/lib/images";
+import { buildWhatsAppUrl, getTelUrl } from "@/lib/order-contact";
 import { siteConfig } from "@/data/site";
 import { FadeIn } from "@/components/shared/FadeIn";
 
 export function ContactContent() {
-  const [form, setForm] = useState({ name: "", email: "", topic: "general", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", topic: "general", message: "" });
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const handleClose = () => {
     onClose();
-    setForm({ name: "", email: "", topic: "general", message: "" });
+    setForm({ name: "", email: "", phone: "", topic: "general", message: "" });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -108,6 +110,16 @@ export function ContactContent() {
                     />
                   </FormControl>
                   <FormControl>
+                    <FormLabel textStyle="label">Phone</FormLabel>
+                    <Input
+                      type="tel"
+                      variant="glass"
+                      placeholder="+91 79076 68989"
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    />
+                  </FormControl>
+                  <FormControl>
                     <FormLabel textStyle="label">Topic</FormLabel>
                     <Select
                       variant="glass"
@@ -166,7 +178,22 @@ export function ContactContent() {
                 <Text textStyle="body" fontSize="sm">{siteConfig.address}</Text>
                 <Text textStyle="body" fontSize="sm">{siteConfig.hours}</Text>
                 <Text textStyle="label" pt={4}>Email</Text>
-                <Text textStyle="body" fontSize="sm">{siteConfig.email}</Text>
+                <Link href={`mailto:${siteConfig.email}`} textStyle="body" fontSize="sm" color="oiva.cocoa">
+                  {siteConfig.email}
+                </Link>
+                <Text textStyle="label" pt={4}>Phone</Text>
+                <Link href={getTelUrl()} textStyle="body" fontSize="sm" color="oiva.cocoa">
+                  {siteConfig.phone}
+                </Link>
+                <Link
+                  href={buildWhatsAppUrl("Hi, I'd like to get in touch.")}
+                  isExternal
+                  textStyle="body"
+                  fontSize="sm"
+                  color="oiva.rose"
+                >
+                  Message on WhatsApp
+                </Link>
               </VStack>
             </VStack>
           </FadeIn>

@@ -32,12 +32,39 @@ export const pillars: Pillar[] = [
 ];
 
 export const brandStatement =
-  "the OIVA is a quiet-luxury womenswear house where Parisian couture sensibility meets Scandinavian restraint. We make fewer pieces, with more intention — garments designed to become the foundation of a considered wardrobe.";
+  "OIVAH is a quiet-luxury online ladies store for contemporary womenswear — cotton kurtas, tunics, shirts and maxi dresses, made with intention in Palakkad, Kerala.";
+
+/** Base keywords for meta tags and search visibility (India-focused ladies wear). */
+export const seoKeywords = [
+  "online ladies store",
+  "ladies store online India",
+  "women's clothing online India",
+  "buy ladies clothes online",
+  "women's fashion store online",
+  "ladies wear online shopping",
+  "women's boutique online",
+  "cotton kurta online",
+  "cotton tunics for women",
+  "women's tops online India",
+  "maxi dresses online India",
+  "contemporary womenswear India",
+  "Palakkad ladies boutique",
+  "Kerala women's clothing store",
+  "Cherpulassery ladies wear",
+  "quiet luxury womenswear",
+  "OIVAH",
+  "Oivah Feminine Atelier",
+  "cotton kurtas Kerala",
+  "western wear for women India",
+  "floral cotton kurta",
+  "women's cotton shirts online",
+] as const;
 
 export const siteConfig = {
   name: "the OIVA",
   url: "https://oivah.com",
   email: "info@oivah.com",
+  phone: "+917907668989",
   contactRecipients: {
     to: "info@oivah.com",
     cc: [
@@ -46,7 +73,7 @@ export const siteConfig = {
       "raheenakoulath@gmail.com",
     ],
   },
-  address: "14 Rue de la Roquette, 75011 Paris",
+  address: "OIVAH, Cherpulassery, Cherpulassery Post, Palakkad, Kerala — PIN 679503",
   hours: "Tuesday – Saturday, 10:00 – 18:00",
   /** Set to false when ready to open the full site. */
   comingSoon: false,
