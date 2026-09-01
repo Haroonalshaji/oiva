@@ -36,9 +36,9 @@ export function Header() {
         left={0}
         right={0}
         zIndex={1000}
-        bg="oiva.ivory"
+        layerStyle="glassLight"
         borderBottom="1px solid"
-        borderColor="oiva.hairline"
+        borderColor="rgba(255, 255, 255, 0.45)"
       >
         <Container maxW="1440px" px={{ base: 5, md: 10 }} py={{ base: 3, md: 4 }}>
           <Flex align="center" justify="space-between">
@@ -145,7 +145,13 @@ export function Header() {
               justifyContent: "center",
             }}
           >
-            <Box position="absolute" inset={0} bg="oiva.ivory" />
+            <Box
+              position="absolute"
+              inset={0}
+              bg="rgba(251, 246, 238, 0.72)"
+              backdropFilter="blur(20px) saturate(140%)"
+              sx={{ WebkitBackdropFilter: "blur(20px) saturate(140%)" }}
+            />
             <VStack spacing={8} position="relative" zIndex={1}>
               {navItems.map((item, i) => (
                 <motion.div

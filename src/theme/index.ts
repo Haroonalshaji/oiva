@@ -1,5 +1,6 @@
 import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
 import { oivaColors } from "./foundations/colors";
+import { glassLayerStyles } from "./foundations/glass";
 import { fontFamilies, textStyles } from "./foundations/typography";
 
 const config: ThemeConfig = {
@@ -17,6 +18,7 @@ const theme = extendTheme({
     body: fontFamilies.body,
   },
   textStyles,
+  layerStyles: glassLayerStyles,
   styles: {
     global: {
       "html, body": {
@@ -112,6 +114,25 @@ const theme = extendTheme({
             },
           },
         },
+        glass: {
+          field: {
+            bg: "rgba(255, 255, 255, 0.5)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+            border: "1px solid rgba(255, 255, 255, 0.65)",
+            borderRadius: "2px",
+            fontFamily: fontFamilies.body,
+            fontWeight: 300,
+            fontSize: "0.9375rem",
+            color: "oiva.ink",
+            _placeholder: { color: "oiva.taupe" },
+            _hover: { borderColor: "rgba(255, 255, 255, 0.85)" },
+            _focus: {
+              borderColor: "oiva.cocoa",
+              boxShadow: "0 0 0 1px rgba(74, 56, 44, 0.15)",
+            },
+          },
+        },
       },
       defaultProps: {
         variant: "oiva",
@@ -135,6 +156,23 @@ const theme = extendTheme({
             boxShadow: "none",
           },
         },
+        glass: {
+          bg: "rgba(255, 255, 255, 0.5)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          border: "1px solid rgba(255, 255, 255, 0.65)",
+          borderRadius: "2px",
+          fontFamily: fontFamilies.body,
+          fontWeight: 300,
+          fontSize: "0.9375rem",
+          color: "oiva.ink",
+          _placeholder: { color: "oiva.taupe" },
+          _hover: { borderColor: "rgba(255, 255, 255, 0.85)" },
+          _focus: {
+            borderColor: "oiva.cocoa",
+            boxShadow: "0 0 0 1px rgba(74, 56, 44, 0.15)",
+          },
+        },
       },
       defaultProps: {
         variant: "oiva",
@@ -156,6 +194,24 @@ const theme = extendTheme({
             _focus: {
               borderColor: "oiva.cocoa",
               boxShadow: "none",
+            },
+          },
+        },
+        glass: {
+          field: {
+            bg: "rgba(255, 255, 255, 0.5)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+            border: "1px solid rgba(255, 255, 255, 0.65)",
+            borderRadius: "2px",
+            fontFamily: fontFamilies.body,
+            fontWeight: 300,
+            fontSize: "0.875rem",
+            color: "oiva.ink",
+            _hover: { borderColor: "rgba(255, 255, 255, 0.85)" },
+            _focus: {
+              borderColor: "oiva.cocoa",
+              boxShadow: "0 0 0 1px rgba(74, 56, 44, 0.15)",
             },
           },
         },

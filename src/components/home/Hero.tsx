@@ -5,10 +5,17 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import NextLink from "next/link";
 import { imageConfig } from "@/lib/images";
+import { heroOverlays } from "@/theme/foundations/glass";
 
 export function Hero() {
   return (
-    <Box as="section" position="relative" minH={{ base: "85vh", md: "92vh" }} mt={{ base: "80px", md: "100px" }} display="flex" alignItems="flex-end">
+    <Box
+      as="section"
+      position="relative"
+      minH={{ base: "100vh", md: "100vh" }}
+      display="flex"
+      alignItems="flex-end"
+    >
       <Box position="absolute" inset={0} zIndex={0}>
         <Image
           src={imageConfig.hero.src}
@@ -18,11 +25,9 @@ export function Hero() {
           sizes="100vw"
           style={{ objectFit: "cover" }}
         />
-        <Box
-          position="absolute"
-          inset={0}
-          bg="linear-gradient(to top, rgba(46,33,25,0.6) 0%, rgba(46,33,25,0.2) 50%, rgba(46,33,25,0.08) 100%)"
-        />
+        <Box position="absolute" inset={0} bg={heroOverlays.gradient} />
+        <Box position="absolute" inset={0} bg={heroOverlays.goldWash} />
+        <Box position="absolute" inset={0} bg={heroOverlays.vignette} />
       </Box>
 
       <Container
@@ -33,7 +38,14 @@ export function Hero() {
         position="relative"
         zIndex={1}
       >
-        <VStack align="flex-start" spacing={6} maxW="640px">
+        <VStack
+          align="flex-start"
+          spacing={6}
+          maxW="640px"
+          layerStyle="glassDark"
+          p={{ base: 6, md: 8 }}
+          borderRadius="2px"
+        >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

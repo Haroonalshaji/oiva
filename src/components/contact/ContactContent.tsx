@@ -8,10 +8,17 @@ import {
   FormLabel,
   Grid,
   Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalOverlay,
   Select,
   Text,
   Textarea,
   VStack,
+  useDisclosure,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { useState } from "react";
@@ -21,21 +28,35 @@ import { FadeIn } from "@/components/shared/FadeIn";
 
 export function ContactContent() {
   const [form, setForm] = useState({ name: "", email: "", topic: "general", message: "" });
-  const [submitted, setSubmitted] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleClose = () => {
+    onClose();
+    setForm({ name: "", email: "", topic: "general", message: "" });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
     try {
-      await fetch("/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      setSubmitted(true);
+
+      if (!response.ok) {
+        const data = (await response.json().catch(() => null)) as { error?: string } | null;
+        setError(data?.error ?? "Something went wrong. Please try again.");
+        return;
+      }
+
+      onOpen();
     } catch {
-      setSubmitted(true);
+      setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -67,57 +88,57 @@ export function ContactContent() {
                 </Text>
               </VStack>
 
-              {submitted ? (
-                <VStack align="flex-start" spacing={4} py={8}>
-                  <Box w="48px" h="1px" bg="oiva.hairline" />
-                  <Text textStyle="body">
-                    Thank you for reaching out. We will respond within two business days.
-                  </Text>
+              <Box as="form" onSubmit={handleSubmit} w="full" layerStyle="glassPanel" p={{ base: 5, md: 6 }}>
+                <VStack spacing={5} align="stretch">
+                  <FormControl isRequired>
+                    <FormLabel textStyle="label">Name</FormLabel>
+                    <Input
+                      variant="glass"
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    />
+                  </FormControl>
+                  <FormControl isRequired>
+                    <FormLabel textStyle="label">Email</FormLabel>
+                    <Input
+                      type="email"
+                      variant="glass"
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    />
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel textStyle="label">Topic</FormLabel>
+                    <Select
+                      variant="glass"
+                      value={form.topic}
+                      onChange={(e) => setForm({ ...form, topic: e.target.value })}
+                    >
+                      <option value="general">General enquiry</option>
+                      <option value="orders">Orders and shipping</option>
+                      <option value="press">Press and collaborations</option>
+                      <option value="visit">Studio visit</option>
+                    </Select>
+                  </FormControl>
+                  <FormControl isRequired>
+                    <FormLabel textStyle="label">Message</FormLabel>
+                    <Textarea
+                      variant="glass"
+                      rows={6}
+                      value={form.message}
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    />
+                  </FormControl>
+                  <Button type="submit" size="lg" isLoading={loading} alignSelf="flex-start">
+                    Send message
+                  </Button>
+                  {error ? (
+                    <Text fontSize="sm" color="red.600">
+                      {error}
+                    </Text>
+                  ) : null}
                 </VStack>
-              ) : (
-                <Box as="form" onSubmit={handleSubmit} w="full">
-                  <VStack spacing={5} align="stretch">
-                    <FormControl isRequired>
-                      <FormLabel textStyle="label">Name</FormLabel>
-                      <Input
-                        value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      />
-                    </FormControl>
-                    <FormControl isRequired>
-                      <FormLabel textStyle="label">Email</FormLabel>
-                      <Input
-                        type="email"
-                        value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      />
-                    </FormControl>
-                    <FormControl>
-                      <FormLabel textStyle="label">Topic</FormLabel>
-                      <Select
-                        value={form.topic}
-                        onChange={(e) => setForm({ ...form, topic: e.target.value })}
-                      >
-                        <option value="general">General enquiry</option>
-                        <option value="orders">Orders and shipping</option>
-                        <option value="press">Press and collaborations</option>
-                        <option value="visit">Studio visit</option>
-                      </Select>
-                    </FormControl>
-                    <FormControl isRequired>
-                      <FormLabel textStyle="label">Message</FormLabel>
-                      <Textarea
-                        rows={6}
-                        value={form.message}
-                        onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      />
-                    </FormControl>
-                    <Button type="submit" size="lg" isLoading={loading} alignSelf="flex-start">
-                      Send message
-                    </Button>
-                  </VStack>
-                </Box>
-              )}
+              </Box>
             </VStack>
           </FadeIn>
 
@@ -151,6 +172,52 @@ export function ContactContent() {
           </FadeIn>
         </Grid>
       </Container>
+
+      <Modal isOpen={isOpen} onClose={handleClose} isCentered motionPreset="slideInBottom">
+        <ModalOverlay bg="blackAlpha.400" backdropFilter="blur(8px)" />
+        <ModalContent
+          layerStyle="glassLight"
+          borderRadius="2px"
+          mx={5}
+          maxW="440px"
+          py={2}
+        >
+          <ModalCloseButton color="oiva.cocoa" _hover={{ bg: "oiva.champagne" }} />
+          <ModalBody pt={10} pb={6} px={{ base: 6, md: 8 }}>
+            <VStack spacing={5} align="center" textAlign="center">
+              <Box w="48px" h="1px" bg="oiva.gold" />
+              <Text textStyle="label" color="oiva.rose">
+                Message sent
+              </Text>
+              <Text
+                as="h2"
+                fontFamily="var(--font-playfair), 'Playfair Display', serif"
+                fontSize={{ base: "xl", md: "2xl" }}
+                fontWeight={500}
+                letterSpacing="0.04em"
+                color="oiva.cocoa"
+                lineHeight={1.2}
+              >
+                Thank you for reaching out
+              </Text>
+              <Text
+                fontFamily="var(--font-cormorant), 'Cormorant Garamond', serif"
+                fontStyle="italic"
+                fontSize={{ base: "md", md: "lg" }}
+                color="oiva.rose"
+                lineHeight={1.6}
+              >
+                We will respond within two business days.
+              </Text>
+            </VStack>
+          </ModalBody>
+          <ModalFooter justifyContent="center" pb={8} pt={0} px={{ base: 6, md: 8 }}>
+            <Button variant="solid" size="md" onClick={handleClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 }

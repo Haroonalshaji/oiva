@@ -8,9 +8,9 @@ import { EditorialQuote } from "@/components/shared/EditorialQuote";
 import { FadeIn } from "@/components/shared/FadeIn";
 
 const team = [
-  { name: "Elena Voss", role: "Creative Director", imageIndex: 0 },
-  { name: "Amélie Laurent", role: "Head of Atelier", imageIndex: 1 },
-  { name: "Sofia Lindberg", role: "Materials Director", imageIndex: 2 },
+  { name: "Ananya Mehta", role: "Creative Director", imageIndex: 0 },
+  { name: "Priya Sharma", role: "Head of Atelier", imageIndex: 1 },
+  { name: "Riya Kapoor", role: "Materials Director", imageIndex: 2 },
 ];
 
 export function AboutContent() {

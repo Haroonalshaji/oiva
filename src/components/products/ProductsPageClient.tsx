@@ -29,14 +29,19 @@ export function ProductsPageClient() {
           />
         </FadeIn>
 
-        <Flex
+        <Box
+          layerStyle="glassPanel"
+          px={{ base: 4, md: 6 }}
+          py={{ base: 4, md: 5 }}
           mt={10}
           mb={12}
-          gap={{ base: 4, md: 6 }}
-          direction={{ base: "column", sm: "row" }}
-          align={{ base: "stretch", sm: "center" }}
-          justify="space-between"
         >
+          <Flex
+            gap={{ base: 4, md: 6 }}
+            direction={{ base: "column", sm: "row" }}
+            align={{ base: "stretch", sm: "center" }}
+            justify="space-between"
+          >
           <Flex gap={{ base: 3, md: 4 }} flexWrap="wrap" align="center">
             {categories.map((cat) => (
               <Text
@@ -64,7 +69,8 @@ export function ProductsPageClient() {
             <option value="price-desc">Price: high to low</option>
             <option value="name">Name</option>
           </Select>
-        </Flex>
+          </Flex>
+        </Box>
 
         <SimpleGrid columns={{ base: 1, sm: 2, lg: 3, xl: 4 }} spacing={{ base: 6, sm: 8, md: 10 }}>
           {filtered.map((product, i) => (

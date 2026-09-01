@@ -38,11 +38,12 @@ export function LookbookStrip() {
                 />
                 <Box
                   position="absolute"
-                  bottom={0}
-                  left={0}
-                  right={0}
-                  p={{ base: 4, md: 6 }}
-                  bg="linear-gradient(to top, rgba(46,33,25,0.35), transparent)"
+                  bottom={3}
+                  left={3}
+                  right={3}
+                  p={{ base: 3, md: 4 }}
+                  layerStyle="glassDark"
+                  borderRadius="2px"
                 >
                   <Text
                     fontFamily="var(--font-cormorant), 'Cormorant Garamond', serif"

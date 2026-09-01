@@ -27,10 +27,8 @@ export function ProductCard({ product, index = 0, priority = false }: ProductCar
           position="relative"
           aspectRatio={3 / 4}
           overflow="hidden"
-          bg="oiva.champagne"
           borderRadius="2px"
-          border="1px solid"
-          borderColor="oiva.hairline"
+          layerStyle="glassPanel"
           sx={{ "& img": { transition: "transform 0.5s ease-out" } }}
           _groupHover={{ "& img": { transform: "scale(1.03)" } }}
         >
@@ -43,7 +41,8 @@ export function ProductCard({ product, index = 0, priority = false }: ProductCar
             priority={priority}
           />
         </Box>
-        <VStack align="flex-start" spacing={1}>
+        <Box layerStyle="glassPanel" p={3} w="full">
+          <VStack align="flex-start" spacing={1}>
           <Text
             fontFamily="var(--font-playfair), 'Playfair Display', serif"
             fontSize={{ base: "sm", md: "md" }}
@@ -64,7 +63,8 @@ export function ProductCard({ product, index = 0, priority = false }: ProductCar
           >
             {formatPrice(product.price)}
           </Text>
-        </VStack>
+          </VStack>
+        </Box>
       </VStack>
     </Link>
   );

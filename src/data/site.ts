@@ -36,14 +36,22 @@ export const brandStatement =
 
 export const siteConfig = {
   name: "the OIVA",
-  url: "https://theoiva.com",
+  url: "https://oivah.com",
   email: "info@oivah.com",
+  contactRecipients: {
+    to: "info@oivah.com",
+    cc: [
+      "haroonalshaji@gmail.com",
+      "hilalpadiyath@gmail.com",
+      "raheenakoulath@gmail.com",
+    ],
+  },
   address: "14 Rue de la Roquette, 75011 Paris",
   hours: "Tuesday – Saturday, 10:00 – 18:00",
   /** Set to false when ready to open the full site. */
-  comingSoon: true,
+  comingSoon: false,
   social: {
-    instagram: "https://instagram.com/theoiva",
+    instagram: "https://www.instagram.com/oivah.official/",
     pinterest: "https://pinterest.com/theoiva",
   },
 } as const;
