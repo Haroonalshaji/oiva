@@ -73,7 +73,7 @@ export const siteConfig = {
       "raheenakoulath@gmail.com",
     ],
   },
-  address: "OIVAH, Cherpulassery, Cherpulassery Post, Palakkad, Kerala — PIN 679503",
+  address: "Kerala, India",
   hours: "Tuesday – Saturday, 10:00 – 18:00",
   /** Set to false when ready to open the full site. */
   comingSoon: false,

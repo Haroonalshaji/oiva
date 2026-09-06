@@ -153,7 +153,7 @@ export function Footer() {
           gap={3}
         >
           <Text textStyle="label" color="oiva.taupe" fontSize="0.625rem">
-            &copy; the OIVA, {new Date().getFullYear()}. All rights reserved.
+            &copy; Oivah, {new Date().getFullYear()}. All rights reserved.
           </Text>
           <Text textStyle="label" color="oiva.taupe" fontSize="0.625rem">
             Palakkad, Kerala &middot; Crafted with intention
