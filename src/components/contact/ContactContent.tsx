@@ -22,21 +22,30 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { imageConfig } from "@/lib/images";
 import { buildWhatsAppUrl, getTelUrl } from "@/lib/order-contact";
 import { siteConfig } from "@/data/site";
 import { FadeIn } from "@/components/shared/FadeIn";
 
 export function ContactContent() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", topic: "general", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    topic: "general",
+    message: "",
+    company: "",
+  });
+  const startedAt = useRef(Date.now());
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const handleClose = () => {
     onClose();
-    setForm({ name: "", email: "", phone: "", topic: "general", message: "" });
+    setForm({ name: "", email: "", phone: "", topic: "general", message: "", company: "" });
+    startedAt.current = Date.now();
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -47,7 +56,7 @@ export function ContactContent() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, startedAt: startedAt.current }),
       });
 
       if (!response.ok) {
@@ -90,8 +99,34 @@ export function ContactContent() {
                 </Text>
               </VStack>
 
-              <Box as="form" onSubmit={handleSubmit} w="full" layerStyle="glassPanel" p={{ base: 5, md: 6 }}>
+              <Box
+                as="form"
+                onSubmit={handleSubmit}
+                w="full"
+                position="relative"
+                layerStyle="glassPanel"
+                p={{ base: 5, md: 6 }}
+              >
                 <VStack spacing={5} align="stretch">
+                  <Box
+                    position="absolute"
+                    left="-10000px"
+                    width="1px"
+                    height="1px"
+                    overflow="hidden"
+                    aria-hidden="true"
+                  >
+                    <label htmlFor="company">Company</label>
+                    <input
+                      id="company"
+                      name="company"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={form.company}
+                      onChange={(e) => setForm({ ...form, company: e.target.value })}
+                    />
+                  </Box>
                   <FormControl isRequired>
                     <FormLabel textStyle="label">Name</FormLabel>
                     <Input

@@ -32,6 +32,14 @@ export function createPageMetadata({
     title,
     description,
     keywords: allKeywords,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
     alternates: { canonical: path },
     openGraph: {
       title: `${title} · ${siteConfig.name}`,
@@ -105,6 +113,17 @@ export const seo = {
       "order ladies wear online",
       "WhatsApp clothing order Kerala",
       "OIVAH contact number",
+    ],
+  }),
+  returns: createPageMetadata({
+    title: "Return & Exchange Policy",
+    description:
+      "OIVAH return and exchange policy — damage claims within 24 hours, WhatsApp support, credit notes, and cancellation terms for our online ladies store in Kerala.",
+    path: "/returns",
+    keywords: [
+      "OIVAH return policy",
+      "ladies wear exchange India",
+      "clothing return policy Kerala",
     ],
   }),
 } as const;

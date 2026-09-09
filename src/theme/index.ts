@@ -129,7 +129,7 @@ const theme = extendTheme({
             _hover: { borderColor: "rgba(255, 255, 255, 0.85)" },
             _focus: {
               borderColor: "oiva.cocoa",
-              boxShadow: "0 0 0 1px rgba(74, 56, 44, 0.15)",
+              boxShadow: "0 0 0 1px rgba(62, 18, 20, 0.15)",
             },
           },
         },
@@ -170,7 +170,7 @@ const theme = extendTheme({
           _hover: { borderColor: "rgba(255, 255, 255, 0.85)" },
           _focus: {
             borderColor: "oiva.cocoa",
-            boxShadow: "0 0 0 1px rgba(74, 56, 44, 0.15)",
+            boxShadow: "0 0 0 1px rgba(62, 18, 20, 0.15)",
           },
         },
       },
@@ -211,7 +211,7 @@ const theme = extendTheme({
             _hover: { borderColor: "rgba(255, 255, 255, 0.85)" },
             _focus: {
               borderColor: "oiva.cocoa",
-              boxShadow: "0 0 0 1px rgba(74, 56, 44, 0.15)",
+              boxShadow: "0 0 0 1px rgba(62, 18, 20, 0.15)",
             },
           },
         },

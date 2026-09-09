@@ -1,15 +1,15 @@
 import { siteConfig } from "@/data/site";
 
 const colors = {
-  ivory: "#FBF6EE",
-  champagne: "#E8D9C0",
+  ivory: "#F6C8A3",
+  champagne: "#E8B88A",
   gold: "#F6C8A3",
-  rose: "#B98D78",
-  cocoa: "#4A382C",
-  cocoaDeep: "#2E2119",
-  taupe: "#A8927E",
-  hairline: "#D8C9B8",
-  pearl: "#FFFFFF",
+  rose: "#C48A72",
+  cocoa: "#3E1214",
+  cocoaDeep: "#2A0C0E",
+  taupe: "#9A6B5C",
+  hairline: "#D4A888",
+  pearl: "#FAE0C8",
 } as const;
 
 interface ContactEmailContent {

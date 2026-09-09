@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteConfig.url}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteConfig.url}/journal`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     { url: `${siteConfig.url}/contact`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${siteConfig.url}/returns`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
   ];
 
   const productPages: MetadataRoute.Sitemap = products.map((product) => ({

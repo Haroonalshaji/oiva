@@ -155,9 +155,21 @@ export function Footer() {
           <Text textStyle="label" color="oiva.taupe" fontSize="0.625rem">
             &copy; Oivah, {new Date().getFullYear()}. All rights reserved.
           </Text>
-          <Text textStyle="label" color="oiva.taupe" fontSize="0.625rem">
-            Palakkad, Kerala &middot; Crafted with intention
-          </Text>
+          <Flex gap={4} align="center" flexWrap="wrap">
+            <Link
+              as={NextLink}
+              href="/returns"
+              textStyle="label"
+              color="oiva.taupe"
+              fontSize="0.625rem"
+              _hover={{ color: "oiva.ivory" }}
+            >
+              Return &amp; Exchange
+            </Link>
+            <Text textStyle="label" color="oiva.taupe" fontSize="0.625rem">
+              Palakkad, Kerala &middot; Crafted with intention
+            </Text>
+          </Flex>
         </Flex>
       </Container>
     </Box>

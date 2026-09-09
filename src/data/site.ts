@@ -74,7 +74,7 @@ export const siteConfig = {
     ],
   },
   address: "Kerala, India",
-  hours: "Tuesday – Saturday, 10:00 – 18:00",
+  hours: "We Support Online Orders 24/7",
   /** Set to false when ready to open the full site. */
   comingSoon: false,
   social: {

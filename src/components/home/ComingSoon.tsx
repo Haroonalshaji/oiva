@@ -21,7 +21,7 @@ export function ComingSoon() {
         <Box
           position="absolute"
           inset={0}
-          bg="linear-gradient(135deg, rgba(46,33,25,0.78) 0%, rgba(58,40,32,0.62) 48%, rgba(246,200,163,0.30) 100%)"
+          bg="linear-gradient(135deg, rgba(62,18,20,0.82) 0%, rgba(62,18,20,0.62) 48%, rgba(246,200,163,0.32) 100%)"
         />
         <Box
           position="absolute"

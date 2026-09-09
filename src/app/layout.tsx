@@ -38,6 +38,14 @@ export const metadata: Metadata = {
   },
   description: defaultDescription,
   keywords: [...seoKeywords],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   verification: {
     google: "rMhbaoDKoyThEYAwQGBWuN1FYggXI7fVzxFlmplD4pc",
   },

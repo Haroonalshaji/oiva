@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { siteConfig } from "@/data/site";
 import { buildContactEmailHtml, buildContactEmailText } from "@/lib/contact-email";
+import { getClientIp, isRateLimited, isSpamSubmission } from "@/lib/contact-spam";
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
@@ -28,9 +29,20 @@ export async function POST(request: Request) {
     const phone = sanitize(body.phone, 20);
     const topic = sanitize(body.topic, 32);
     const message = sanitize(body.message, 5000);
+    const honeypot = sanitize(body.company, 120);
+    const startedAt = typeof body.startedAt === "number" ? body.startedAt : Number(body.startedAt);
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    }
+
+    if (isSpamSubmission({ name, email, message, honeypot, startedAt })) {
+      return NextResponse.json({ success: true });
+    }
+
+    const ip = getClientIp(request);
+    if (isRateLimited(ip)) {
+      return NextResponse.json({ error: "Too many requests. Please try again later." }, { status: 429 });
     }
 
     if (!emailPattern.test(email)) {

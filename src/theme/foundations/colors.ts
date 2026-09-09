@@ -1,16 +1,17 @@
+/** Brand palette — wine #3E1214 + peach #F6C8A3 */
 export const oivaColors = {
-  ivory: "#FBF6EE",
-  pearl: "#FFFFFF",
-  champagne: "#E8D9C0",
-  beige: "#D9C7B3",
-  blush: "#E4CFC2",
+  ivory: "#F6C8A3",
+  pearl: "#FAE0C8",
+  champagne: "#E8B88A",
+  beige: "#E5B890",
+  blush: "#F0C9A8",
   gold: "#F6C8A3",
-  taupe: "#A8927E",
-  rose: "#B98D78",
-  cocoa: "#4A382C",
-  cocoaDeep: "#2E2119",
-  ink: "#3A2E25",
-  hairline: "#D8C9B8",
+  taupe: "#9A6B5C",
+  rose: "#C48A72",
+  cocoa: "#3E1214",
+  cocoaDeep: "#2A0C0E",
+  ink: "#3E1214",
+  hairline: "#D4A888",
 } as const;
 
 export type OivaColor = keyof typeof oivaColors;
