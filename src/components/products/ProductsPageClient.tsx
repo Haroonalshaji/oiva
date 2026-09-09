@@ -24,8 +24,9 @@ export function ProductsPageClient() {
       <Container maxW="1440px" px={{ base: 5, md: 10 }}>
         <FadeIn>
           <SectionHeading
-            title="The collection"
-            description="Garments designed to become the foundation of a considered wardrobe."
+            as="h1"
+            title="Women's clothing collection"
+            description="Cotton kurtas, tunics, shirts and maxi dresses — garments designed to become the foundation of a considered wardrobe."
           />
         </FadeIn>
 
@@ -75,7 +76,7 @@ export function ProductsPageClient() {
         <SimpleGrid columns={{ base: 1, sm: 2, lg: 3, xl: 4 }} spacing={{ base: 6, sm: 8, md: 10 }}>
           {filtered.map((product, i) => (
             <FadeIn key={product.slug} delay={(i % 4) * 0.08}>
-              <ProductCard product={product} index={i} />
+              <ProductCard product={product} index={i} headingAs="h2" />
             </FadeIn>
           ))}
         </SimpleGrid>

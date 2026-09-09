@@ -1,4 +1,4 @@
-import { Box, Container, Text, VStack } from "@chakra-ui/react";
+import { Box, Container, Heading, Text, VStack } from "@chakra-ui/react";
 import { brandStatement } from "@/data/site";
 import { FadeIn } from "@/components/shared/FadeIn";
 
@@ -8,7 +8,10 @@ export function BrandStatement() {
       <Container maxW="1440px" px={{ base: 5, md: 10 }}>
         <FadeIn>
           <Box layerStyle="glassPanel" p={{ base: 8, md: 10 }}>
-            <VStack spacing={0} maxW="640px" mx="auto" textAlign="center">
+            <VStack spacing={4} maxW="640px" mx="auto" textAlign="center">
+              <Heading as="h2" textStyle="subhead">
+                An online ladies store, made in Kerala
+              </Heading>
               <Text textStyle="body" fontSize={{ base: "md", md: "lg" }} lineHeight={1.8}>
                 {brandStatement}
               </Text>

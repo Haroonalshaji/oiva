@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { JournalPost } from "@/components/journal/JournalPost";
+import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { getPost, posts } from "@/data/posts";
+import { siteConfig } from "@/data/site";
 import { createPageMetadata } from "@/lib/seo";
 import { postImage } from "@/lib/images";
 
@@ -23,11 +25,25 @@ export function generateMetadata({ params }: Props): Metadata {
     path: `/journal/${post.slug}`,
     image: postImage(post.slug),
     type: "article",
+    authors: [post.author],
+    publishedTime: post.date,
   });
 }
 
 export default function JournalPostPage({ params }: Props) {
   const post = getPost(params.slug);
   if (!post) notFound();
-  return <JournalPost post={post} />;
+  return (
+    <>
+      <ArticleJsonLd post={post} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: siteConfig.brand, path: "/" },
+          { name: "Journal", path: "/journal" },
+          { name: post.title, path: `/journal/${post.slug}` },
+        ]}
+      />
+      <JournalPost post={post} />
+    </>
+  );
 }

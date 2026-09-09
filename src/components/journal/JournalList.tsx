@@ -15,8 +15,9 @@ export function JournalList() {
       <Container maxW="1440px" px={{ base: 5, md: 10 }}>
         <FadeIn>
           <SectionHeading
+            as="h1"
             title="The journal"
-            description="Notes on craft, style, and quiet living"
+            description="Notes on craft, style, and quiet living from OIVAH — cotton craft, women's style, and quiet living."
           />
         </FadeIn>
 
@@ -56,6 +57,7 @@ export function JournalList() {
                       {post.category}
                     </Text>
                     <Text
+                      as="h2"
                       fontFamily="var(--font-playfair), 'Playfair Display', serif"
                       fontSize={{ base: "md", md: "lg" }}
                       fontWeight={500}

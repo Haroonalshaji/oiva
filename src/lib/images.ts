@@ -7,7 +7,7 @@
 export const imageConfig = {
   hero: {
     src: "/images/hero.jpg",
-    alt: "Three young Indian women in printed cotton maxi, pintucks tunic, and palm-print shirt",
+    alt: "Young Indian women in OIVAH cotton maxi dress, floral tunic and palm-print shirt",
     width: 1920,
     height: 1080,
   },

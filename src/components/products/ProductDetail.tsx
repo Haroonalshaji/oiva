@@ -143,11 +143,11 @@ export function ProductDetail({ product }: ProductDetailProps) {
 
               <VStack align="flex-start" spacing={3} w="full">
                 <Box>
-                  <Text textStyle="label" mb={1}>Fabric</Text>
+                  <Text as="h2" textStyle="label" mb={1}>Fabric</Text>
                   <Text textStyle="caption">{product.fabric}</Text>
                 </Box>
                 <Box>
-                  <Text textStyle="label" mb={1}>Care</Text>
+                  <Text as="h2" textStyle="label" mb={1}>Care</Text>
                   <Text textStyle="caption">{product.care}</Text>
                 </Box>
               </VStack>

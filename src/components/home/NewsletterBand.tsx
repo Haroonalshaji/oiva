@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Button, Container, Flex, FormControl, Input, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Container, Flex, FormControl, Heading, Input, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { FadeIn } from "@/components/shared/FadeIn";
 
@@ -22,14 +22,16 @@ export function NewsletterBand() {
         <FadeIn>
           <Box layerStyle="glassPanel" p={{ base: 8, md: 10 }} w="full">
             <VStack spacing={8} textAlign="center">
-              <Text
+              <Heading
+                as="h2"
                 fontFamily="var(--font-cormorant), 'Cormorant Garamond', serif"
                 fontStyle="italic"
+                fontWeight={400}
                 fontSize={{ base: "xl", md: "2xl" }}
                 color="oiva.cocoa"
               >
                 Join us for notes on craft, style, and quiet living
-              </Text>
+              </Heading>
               {submitted ? (
                 <Text textStyle="body" color="oiva.cocoa">
                   Thank you. We will be in touch, occasionally and with intention.

@@ -5,7 +5,7 @@ import { Providers } from "@/components/providers/Providers";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/data/site";
-import { defaultDescription, seoKeywords } from "@/lib/seo";
+import { defaultDescription, seoKeywords, ogImage, indexFollow, canonicalUrl } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 const playfair = Playfair_Display({
@@ -32,31 +32,36 @@ const jost = Jost({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.brand,
   title: {
-    default: siteConfig.name,
-    template: `%s · ${siteConfig.name}`,
+    default: `${siteConfig.brand} — Online Ladies Store for Quiet-Luxury Womenswear`,
+    template: `%s · ${siteConfig.brand}`,
   },
   description: defaultDescription,
   keywords: [...seoKeywords],
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
+  authors: [{ name: siteConfig.author, url: siteConfig.url }],
+  creator: siteConfig.author,
+  publisher: siteConfig.publisher,
+  category: "fashion",
+  robots: indexFollow,
+  alternates: { canonical: canonicalUrl("/") },
   verification: {
     google: "rMhbaoDKoyThEYAwQGBWuN1FYggXI7fVzxFlmplD4pc",
   },
   openGraph: {
-    title: siteConfig.name,
+    title: `${siteConfig.brand} — Online Ladies Store for Quiet-Luxury Womenswear`,
     description: defaultDescription,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    images: [{ url: "/logo/oivah-lockup-og.png", width: 696, height: 502 }],
+    url: canonicalUrl("/"),
+    siteName: siteConfig.brand,
+    images: [ogImage],
     locale: "en_IN",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.brand} — Online Ladies Store for Quiet-Luxury Womenswear`,
+    description: defaultDescription,
+    images: [ogImage.url],
   },
 };
 
@@ -64,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const comingSoon = siteConfig.comingSoon;
 
   return (
-    <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${jost.variable}`}>
+    <html lang="en-IN" className={`${playfair.variable} ${cormorant.variable} ${jost.variable}`}>
       <body>
         <JsonLd />
         <Providers>

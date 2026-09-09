@@ -4,6 +4,7 @@ import { Box, Container, Grid, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { imageConfig } from "@/lib/images";
 import { FadeIn } from "@/components/shared/FadeIn";
+import { SectionHeading } from "@/components/shared/SectionHeading";
 
 export function LookbookStrip() {
   const images = imageConfig.lookbook;
@@ -11,11 +12,18 @@ export function LookbookStrip() {
   return (
     <Box as="section" py={{ base: 16, md: 24 }}>
       <Container maxW="1440px" px={{ base: 5, md: 10 }}>
+        <FadeIn>
+          <SectionHeading
+            title="The lookbook"
+            description="Cotton kurtas, tunics and maxi dresses, photographed as they are worn."
+          />
+        </FadeIn>
         <Grid
           templateColumns={{ base: "1fr", sm: "1fr 1fr", lg: "1fr 0.7fr 1fr" }}
           templateRows={{ base: "auto", sm: "auto auto", lg: "auto" }}
           gap={{ base: 4, md: 6 }}
           alignItems="start"
+          mt={12}
         >
           {images.map((img, i) => (
             <FadeIn key={img.src} delay={i * 0.15}>

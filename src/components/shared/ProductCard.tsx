@@ -11,9 +11,10 @@ interface ProductCardProps {
   product: Product;
   index?: number;
   priority?: boolean;
+  headingAs?: "h2" | "h3";
 }
 
-export function ProductCard({ product, index = 0, priority = false }: ProductCardProps) {
+export function ProductCard({ product, index = 0, priority = false, headingAs = "h3" }: ProductCardProps) {
   return (
     <Link href={`/products/${product.slug}`} style={{ textDecoration: "none" }}>
       <VStack
@@ -34,7 +35,7 @@ export function ProductCard({ product, index = 0, priority = false }: ProductCar
         >
           <Image
             src={productImage(product.slug, index)}
-            alt={product.name}
+            alt={`${product.name} — ${product.material} women's ${product.category.toLowerCase()} from OIVAH`}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             style={{ objectFit: "cover" }}
@@ -44,6 +45,7 @@ export function ProductCard({ product, index = 0, priority = false }: ProductCar
         <Box layerStyle="glassPanel" p={3} w="full">
           <VStack align="flex-start" spacing={1}>
           <Text
+            as={headingAs}
             fontFamily="var(--font-playfair), 'Playfair Display', serif"
             fontSize={{ base: "sm", md: "md" }}
             fontWeight={500}

@@ -74,8 +74,25 @@ export function Hero() {
               lineHeight={1.1}
               color="oiva.ivory"
             >
-              Garments that speak in a lower register
+              Quiet-luxury womenswear from Palakkad
             </Heading>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.55, ease: "easeOut" }}
+          >
+            <Text
+              fontFamily="var(--font-jost), 'Jost', sans-serif"
+              fontWeight={300}
+              fontSize={{ base: "sm", md: "md" }}
+              color="oiva.champagne"
+              letterSpacing="0.02em"
+              lineHeight={1.7}
+              maxW="520px"
+            >
+              An online ladies store for cotton kurtas, tunics, shirts and maxi dresses — made with intention in Kerala.
+            </Text>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 16 }}

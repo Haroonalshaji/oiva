@@ -15,7 +15,7 @@ export function Pillars() {
             <FadeIn key={pillar.title} delay={i * 0.1}>
               <Box layerStyle="glassPanel" p={{ base: 6, md: 7 }} h="full">
                 <VStack align="flex-start" spacing={4}>
-                  <Text textStyle="label" color="oiva.rose">
+                  <Text as="h3" textStyle="label" color="oiva.rose">
                     {pillar.title}
                   </Text>
                   <Text textStyle="body" fontSize="sm">

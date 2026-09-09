@@ -34,35 +34,24 @@ export const pillars: Pillar[] = [
 export const brandStatement =
   "OIVAH is a quiet-luxury online ladies store for contemporary womenswear — cotton kurtas, tunics, shirts and maxi dresses, made with intention in Palakkad, Kerala.";
 
-/** Base keywords for meta tags and search visibility (India-focused ladies wear). */
+/** Tight keyword set for meta tags. Page metadata may add 2–3 extras. */
 export const seoKeywords = [
   "online ladies store",
-  "ladies store online India",
   "women's clothing online India",
-  "buy ladies clothes online",
-  "women's fashion store online",
-  "ladies wear online shopping",
-  "women's boutique online",
   "cotton kurta online",
-  "cotton tunics for women",
-  "women's tops online India",
   "maxi dresses online India",
-  "contemporary womenswear India",
-  "Palakkad ladies boutique",
-  "Kerala women's clothing store",
-  "Cherpulassery ladies wear",
   "quiet luxury womenswear",
+  "Palakkad ladies boutique",
+  "Kerala women's clothing",
   "OIVAH",
-  "Oivah Feminine Atelier",
-  "cotton kurtas Kerala",
-  "western wear for women India",
-  "floral cotton kurta",
-  "women's cotton shirts online",
 ] as const;
 
 export const siteConfig = {
   name: "the OIVA",
-  url: "https://oivah.com",
+  brand: "OIVAH",
+  url: "https://www.oivah.com",
+  publisher: "OIVAH",
+  author: "OIVAH",
   email: "info@oivah.com",
   phone: "+917907668989",
   contactRecipients: {

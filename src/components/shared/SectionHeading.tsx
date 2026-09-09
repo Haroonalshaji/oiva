@@ -6,6 +6,7 @@ interface SectionHeadingProps {
   description?: string;
   align?: "left" | "center";
   light?: boolean;
+  as?: "h1" | "h2";
 }
 
 export function SectionHeading({
@@ -14,6 +15,7 @@ export function SectionHeading({
   description,
   align = "center",
   light = false,
+  as = "h2",
 }: SectionHeadingProps) {
   const color = light ? "oiva.ivory" : "oiva.cocoa";
   const descColor = light ? "oiva.champagne" : "oiva.taupe";
@@ -30,7 +32,7 @@ export function SectionHeading({
           {eyebrow}
         </Text>
       )}
-      <Heading as="h2" textStyle="subhead" color={color}>
+      <Heading as={as} textStyle="subhead" color={color}>
         {title}
       </Heading>
       {description && (

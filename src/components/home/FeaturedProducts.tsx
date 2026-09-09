@@ -13,8 +13,8 @@ export function FeaturedProducts() {
         <FadeIn>
           <SectionHeading
             eyebrow="the edit"
-            title="Featured pieces"
-            description="A selection from the current collection — each designed to anchor a considered wardrobe."
+            title="Featured women's clothing"
+            description="Cotton kurtas, tunics, shirts and maxi dresses from the current collection — each designed to anchor a considered wardrobe."
           />
         </FadeIn>
         <SimpleGrid columns={{ base: 1, sm: 2, lg: 4 }} spacing={{ base: 8, md: 10 }} mt={12}>

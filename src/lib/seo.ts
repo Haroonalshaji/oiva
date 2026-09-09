@@ -1,8 +1,27 @@
 import type { Metadata } from "next";
-import { siteConfig, brandStatement, seoKeywords } from "@/data/site";
+import { siteConfig, seoKeywords } from "@/data/site";
 
 const defaultDescription =
-  "OIVAH — online ladies store for quiet-luxury womenswear in India. Shop cotton kurtas, tunics, shirts and maxi dresses. Order via WhatsApp from Palakkad, Kerala.";
+  "Shop cotton kurtas, tunics, shirts and maxi dresses at OIVAH. Quiet-luxury ladies wear from Palakkad, Kerala — order online across India via WhatsApp.";
+
+const ogImage = {
+  url: "/logo/oivah-lockup-og.png",
+  width: 696,
+  height: 502,
+  alt: "OIVAH — online ladies store for quiet-luxury womenswear",
+};
+
+const indexFollow = {
+  index: true,
+  follow: true,
+  googleBot: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large" as const,
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
+};
 
 interface PageMetadataOptions {
   title: string;
@@ -11,6 +30,16 @@ interface PageMetadataOptions {
   image?: string;
   type?: "website" | "article";
   keywords?: string[];
+  authors?: string[];
+  publishedTime?: string;
+  /** Skip the root title template so the <title> matches this string exactly. */
+  absoluteTitle?: boolean;
+}
+
+export function canonicalUrl(path = "/"): string {
+  const base = siteConfig.url.replace(/\/$/, "");
+  if (path === "/") return `${base}/`;
+  return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
 function mergeKeywords(extra: string[] = []): string[] {
@@ -21,111 +50,101 @@ export function createPageMetadata({
   title,
   description,
   path,
-  image = "/logo/oivah-lockup-og.png",
+  image,
   type = "website",
   keywords = [],
+  authors = [siteConfig.author],
+  publishedTime,
+  absoluteTitle = false,
 }: PageMetadataOptions): Metadata {
-  const url = `${siteConfig.url}${path}`;
+  const url = canonicalUrl(path);
   const allKeywords = mergeKeywords(keywords);
+  const ogTitle = absoluteTitle ? title : `${title} · ${siteConfig.brand}`;
+  const images = image
+    ? [{ url: image, width: 1200, height: 1600, alt: title }]
+    : [ogImage];
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     keywords: allKeywords,
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-      },
-    },
-    alternates: { canonical: path },
+    authors: authors.map((name) => ({ name })),
+    creator: siteConfig.author,
+    publisher: siteConfig.publisher,
+    robots: indexFollow,
+    alternates: { canonical: url },
     openGraph: {
-      title: `${title} · ${siteConfig.name}`,
+      title: ogTitle,
       description,
       url,
-      siteName: siteConfig.name,
-      images: [{ url: image, width: 600, height: 600, alt: siteConfig.name }],
+      siteName: siteConfig.brand,
+      images,
       locale: "en_IN",
       type,
+      ...(type === "article" && publishedTime
+        ? { publishedTime, authors }
+        : {}),
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} · ${siteConfig.name}`,
+      title: ogTitle,
       description,
-      images: [image],
+      images: images.map((img) => img.url),
     },
   };
 }
 
 export const seo = {
   home: createPageMetadata({
-    title: "Online ladies store — quiet-luxury womenswear",
-    description: brandStatement,
+    title: "OIVAH — Online Ladies Store for Quiet-Luxury Womenswear",
+    description: defaultDescription,
     path: "/",
+    absoluteTitle: true,
     keywords: [
-      "shop women's clothing online",
-      "ladies online shopping Kerala",
+      "ladies store online India",
       "buy cotton kurta online India",
     ],
   }),
   products: createPageMetadata({
-    title: "Women's clothing collection — shop online",
+    title: "OIVAH — Women's Clothing Online | Kurtas & Dresses",
     description:
-      "Shop women's clothing online at OIVAH — cotton kurtas, tunics, shirts and maxi dresses. An online ladies store for contemporary cotton womenswear, available across India.",
+      "Shop women's clothing online at OIVAH — cotton kurtas, tunics, shirts and maxi dresses. Quiet-luxury ladies wear from Palakkad, delivered across India.",
     path: "/products",
-    keywords: [
-      "women's collection online",
-      "ladies dresses online",
-      "cotton tops for women",
-      "buy maxi dress online",
-    ],
+    absoluteTitle: true,
+    keywords: ["cotton tops for women", "buy maxi dress online"],
   }),
   about: createPageMetadata({
-    title: "About OIVAH — Kerala ladies boutique",
+    title: "About OIVAH — Ladies Boutique in Palakkad, Kerala",
     description:
-      "OIVAH is an online ladies store and atelier in Cherpulassery, Palakkad, Kerala — quiet luxury womenswear, cotton kurtas and contemporary ladies wear made with intention.",
+      "OIVAH is an online ladies store and atelier in Cherpulassery, Palakkad, Kerala — quiet-luxury cotton kurtas and contemporary womenswear, made with intention.",
     path: "/about",
-    keywords: [
-      "Kerala ladies boutique",
-      "women's clothing brand India",
-      "Palakkad womenswear atelier",
-    ],
+    absoluteTitle: true,
+    keywords: ["Kerala ladies boutique", "Palakkad womenswear atelier"],
   }),
   journal: createPageMetadata({
-    title: "Journal — style, craft & quiet living",
+    title: "OIVAH Journal — Style, Craft and Quiet Living",
     description:
       "Notes on women's style, cotton craft and quiet living from OIVAH — an online ladies store for contemporary womenswear in India.",
     path: "/journal",
-    keywords: [
-      "women's fashion blog India",
-      "ladies style tips",
-      "womenswear craft stories",
-    ],
+    absoluteTitle: true,
+    keywords: ["women's fashion blog India", "womenswear craft stories"],
   }),
   contact: createPageMetadata({
-    title: "Contact — order & enquiries",
+    title: "Contact OIVAH — Order Ladies Wear via WhatsApp",
     description:
-      "Contact OIVAH online ladies store — order women's clothing via WhatsApp or email. Studio in Cherpulassery, Palakkad, Kerala. Ladies wear enquiries welcome.",
+      "Contact OIVAH to order women's clothing via WhatsApp or email. Studio in Cherpulassery, Palakkad, Kerala. Ladies wear enquiries welcome across India.",
     path: "/contact",
-    keywords: [
-      "order ladies wear online",
-      "WhatsApp clothing order Kerala",
-      "OIVAH contact number",
-    ],
+    absoluteTitle: true,
+    keywords: ["OIVAH contact number", "WhatsApp clothing order Kerala"],
   }),
   returns: createPageMetadata({
-    title: "Return & Exchange Policy",
+    title: "Return & Exchange Policy | OIVAH",
     description:
-      "OIVAH return and exchange policy — damage claims within 24 hours, WhatsApp support, credit notes, and cancellation terms for our online ladies store in Kerala.",
+      "OIVAH return and exchange policy — damage claims within 24 hours, WhatsApp support, credit notes, and cancellation terms for our Kerala ladies store.",
     path: "/returns",
-    keywords: [
-      "OIVAH return policy",
-      "ladies wear exchange India",
-      "clothing return policy Kerala",
-    ],
+    absoluteTitle: true,
+    keywords: ["OIVAH return policy", "ladies wear exchange India"],
   }),
 } as const;
 
-export { defaultDescription, seoKeywords, mergeKeywords };
+export { defaultDescription, seoKeywords, mergeKeywords, ogImage, indexFollow };
