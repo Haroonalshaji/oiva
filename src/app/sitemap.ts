@@ -11,6 +11,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: canonicalUrl("/journal"), lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     { url: canonicalUrl("/contact"), lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: canonicalUrl("/returns"), lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
+    { url: canonicalUrl("/privacy"), lastModified: new Date(), changeFrequency: "yearly", priority: 0.4 },
+    { url: canonicalUrl("/cookies"), lastModified: new Date(), changeFrequency: "yearly", priority: 0.4 },
+    { url: canonicalUrl("/terms"), lastModified: new Date(), changeFrequency: "yearly", priority: 0.4 },
+    { url: canonicalUrl("/shipping"), lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
   ];
 
   const productPages: MetadataRoute.Sitemap = products.map((product) => ({

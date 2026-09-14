@@ -8,6 +8,14 @@ export const navItems: NavItem[] = [
   { label: "Contact", href: "/contact" },
 ];
 
+export const legalNavItems: NavItem[] = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Cookie Policy", href: "/cookies" },
+  { label: "Terms & Conditions", href: "/terms" },
+  { label: "Shipping Policy", href: "/shipping" },
+  { label: "Return & Exchange", href: "/returns" },
+];
+
 export const pillars: Pillar[] = [
   {
     title: "Quiet luxury",

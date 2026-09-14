@@ -158,7 +158,7 @@ export function Header() {
             <Box
               position="absolute"
               inset={0}
-              bg="rgba(246, 200, 163, 0.88)"
+              bg="rgba(255, 235, 219, 0.92)"
               backdropFilter="blur(20px) saturate(140%)"
               sx={{ WebkitBackdropFilter: "blur(20px) saturate(140%)" }}
             />

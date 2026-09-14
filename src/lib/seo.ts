@@ -145,6 +145,38 @@ export const seo = {
     absoluteTitle: true,
     keywords: ["OIVAH return policy", "ladies wear exchange India"],
   }),
+  privacy: createPageMetadata({
+    title: "Privacy Policy | OIVAH",
+    description:
+      "How OIVAH collects, uses and protects your personal information when you shop, enquire, or order women's clothing from our Palakkad atelier.",
+    path: "/privacy",
+    absoluteTitle: true,
+    keywords: ["OIVAH privacy policy", "ladies store data protection"],
+  }),
+  cookies: createPageMetadata({
+    title: "Cookie Policy | OIVAH",
+    description:
+      "OIVAH cookie policy — the cookies we use to run oivah.com, what we do not use, and how you can control cookies in your browser.",
+    path: "/cookies",
+    absoluteTitle: true,
+    keywords: ["OIVAH cookie policy", "oivah.com cookies"],
+  }),
+  terms: createPageMetadata({
+    title: "Terms & Conditions | OIVAH",
+    description:
+      "Terms and conditions for shopping at OIVAH — WhatsApp orders, pricing, payment, intellectual property, and governing law for our Kerala ladies store.",
+    path: "/terms",
+    absoluteTitle: true,
+    keywords: ["OIVAH terms and conditions", "ladies store terms India"],
+  }),
+  shipping: createPageMetadata({
+    title: "Shipping Policy | OIVAH",
+    description:
+      "OIVAH shipping policy — pan-India delivery after WhatsApp order confirmation, charges, timelines, and what to do if a parcel arrives damaged.",
+    path: "/shipping",
+    absoluteTitle: true,
+    keywords: ["OIVAH shipping policy", "ladies wear delivery India"],
+  }),
 } as const;
 
 export { defaultDescription, seoKeywords, mergeKeywords, ogImage, indexFollow };

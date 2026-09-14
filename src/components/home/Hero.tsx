@@ -74,7 +74,7 @@ export function Hero() {
               lineHeight={1.1}
               color="oiva.ivory"
             >
-              Quiet-luxury womenswear from Palakkad
+              Quiet-luxury womenswear
             </Heading>
           </motion.div>
           <motion.div
@@ -91,7 +91,7 @@ export function Hero() {
               lineHeight={1.7}
               maxW="520px"
             >
-              An online ladies store for cotton kurtas, tunics, shirts and maxi dresses — made with intention in Kerala.
+              An online ladies store for cotton kurtas, tunics, shirts and maxi dresses — made with intention.
             </Text>
           </motion.div>
           <motion.div

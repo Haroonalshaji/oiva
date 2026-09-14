@@ -1,7 +1,7 @@
-/** Brand palette — wine #3E1214 + peach #F6C8A3 */
+/** Brand palette — wine #3E1214 + canvas #FFEBDB + peach accent #F6C8A3 */
 export const oivaColors = {
-  ivory: "#F6C8A3",
-  pearl: "#FAE0C8",
+  ivory: "#FFEBDB",
+  pearl: "#FFEBDB",
   champagne: "#E8B88A",
   beige: "#E5B890",
   blush: "#F0C9A8",
@@ -10,7 +10,7 @@ export const oivaColors = {
   rose: "#C48A72",
   cocoa: "#3E1214",
   cocoaDeep: "#2A0C0E",
-  ink: "#3E1214",
+  ink: "#6B4038",
   hairline: "#D4A888",
 } as const;
 

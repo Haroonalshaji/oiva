@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useState } from "react";
-import { navItems, siteConfig } from "@/data/site";
+import { navItems, legalNavItems, siteConfig } from "@/data/site";
 import { getTelUrl } from "@/lib/order-contact";
 import { FadeIn } from "@/components/shared/FadeIn";
 
@@ -37,8 +37,8 @@ export function Footer() {
       <Container maxW="1440px" px={{ base: 5, md: 10 }} py={{ base: 12, md: 16 }}>
         <FadeIn>
           <Grid
-            templateColumns={{ base: "1fr", sm: "1fr 1fr", lg: "repeat(4, 1fr)" }}
-            gap={{ base: 10, lg: 12 }}
+            templateColumns={{ base: "1fr", sm: "1fr 1fr", lg: "1.3fr 1fr 1fr 1fr 1.2fr" }}
+            gap={{ base: 10, lg: 10 }}
           >
             <GridItem colSpan={{ base: 1, sm: 2, lg: 1 }}>
               <VStack align="flex-start" spacing={6}>
@@ -70,6 +70,26 @@ export function Footer() {
                   Navigate
                 </Text>
                 {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    as={NextLink}
+                    href={item.href}
+                    textStyle="navLink"
+                    color="oiva.ivory"
+                    _hover={{ color: "oiva.rose" }}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </VStack>
+            </GridItem>
+
+            <GridItem>
+              <VStack align="flex-start" spacing={4}>
+                <Text textStyle="label" color="oiva.champagne">
+                  Policies
+                </Text>
+                {legalNavItems.map((item) => (
                   <Link
                     key={item.href}
                     as={NextLink}
@@ -156,19 +176,19 @@ export function Footer() {
             &copy; Oivah, {new Date().getFullYear()}. All rights reserved.
           </Text>
           <Flex gap={4} align="center" flexWrap="wrap">
-            <Link
-              as={NextLink}
-              href="/returns"
-              textStyle="label"
-              color="oiva.taupe"
-              fontSize="0.625rem"
-              _hover={{ color: "oiva.ivory" }}
-            >
-              Return &amp; Exchange
-            </Link>
-            <Text textStyle="label" color="oiva.taupe" fontSize="0.625rem">
-              Palakkad, Kerala &middot; Crafted with intention
-            </Text>
+            {legalNavItems.map((item) => (
+              <Link
+                key={item.href}
+                as={NextLink}
+                href={item.href}
+                textStyle="label"
+                color="oiva.taupe"
+                fontSize="0.625rem"
+                _hover={{ color: "oiva.ivory" }}
+              >
+                {item.label}
+              </Link>
+            ))}
           </Flex>
         </Flex>
       </Container>

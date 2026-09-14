@@ -17,7 +17,7 @@ export function NewsletterBand() {
   };
 
   return (
-    <Box as="section" bg="oiva.champagne" py={{ base: 16, md: 20 }}>
+    <Box as="section" bg="oiva.ivory" py={{ base: 16, md: 20 }}>
       <Container maxW="720px" px={{ base: 5, md: 10 }}>
         <FadeIn>
           <Box layerStyle="glassPanel" p={{ base: 8, md: 10 }} w="full">

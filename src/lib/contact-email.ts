@@ -1,7 +1,7 @@
 import { siteConfig } from "@/data/site";
 
 const colors = {
-  ivory: "#F6C8A3",
+  ivory: "#FFEBDB",
   champagne: "#E8B88A",
   gold: "#F6C8A3",
   rose: "#C48A72",
@@ -9,7 +9,7 @@ const colors = {
   cocoaDeep: "#2A0C0E",
   taupe: "#9A6B5C",
   hairline: "#D4A888",
-  pearl: "#FAE0C8",
+  pearl: "#FFEBDB",
 } as const;
 
 interface ContactEmailContent {
