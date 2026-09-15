@@ -19,23 +19,26 @@ export const imageConfig = {
   },
   lookbook: [
     {
-      src: "/images/lookbook/1.jpg",
-      alt: "Peach floral medallion cotton maxi dress with thigh slit and white scarf",
-      caption: "Silk that moves with intention",
+      src: "/images/products/checked-full-length-top.jpg",
+      alt: "Sand check full-length tunic with side slit",
+      caption: "A long line, a quiet check",
+      href: "/products/checked-full-length-top",
       width: 900,
       height: 1200,
     },
     {
-      src: "/images/lookbook/2.jpg",
-      alt: "Rust-orange floral cotton pintucks tunic with mandarin collar",
-      caption: "The quiet geometry of a well-cut line",
+      src: "/images/products/floral-print-cord-set.jpg",
+      alt: "Sage rose floral co-ord set",
+      caption: "The co-ord, worn as one",
+      href: "/products/floral-print-cord-set",
       width: 700,
       height: 900,
     },
     {
-      src: "/images/lookbook/3.jpg",
-      alt: "Palm-print striped cotton shirts in lime and pink with denim",
-      caption: "Where the seam disappears",
+      src: "/images/products/cotton-three-piece-anarkali-2.jpg",
+      alt: "Brick orange cotton three-piece Anarkali suit",
+      caption: "Anarkali in brick orange",
+      href: "/products/cotton-three-piece-anarkali",
       width: 900,
       height: 1100,
     },
@@ -89,14 +92,24 @@ export const imageConfig = {
 } as const;
 
 const productImages: Record<string, string[]> = {
-  "silk-drape-blouse": ["/images/lookbook/2.jpg", "/images/about/2.jpg"],
-  "wool-tailored-coat": ["/images/about/3.jpg", "/images/lookbook/3.jpg"],
-  "linen-column-dress": ["/images/lookbook/1.jpg", "/images/about/1.jpg"],
-  "cashmere-knit-polo": ["/images/brand-statement.jpg", "/images/contact.jpg"],
-  "cotton-wide-trouser": ["/images/lookbook/3.jpg", "/images/about/3.jpg"],
-  "satin-bias-skirt": ["/images/about/2.jpg", "/images/lookbook/2.jpg"],
-  "merino-turtleneck": ["/images/team/2.jpg", "/images/brand-statement.jpg"],
-  "leather-sling-back": ["/images/contact.jpg", "/images/about/1.jpg"],
+  "checked-full-length-top": [
+    "/images/products/checked-full-length-top.jpg",
+    "/images/products/checked-full-length-top-2.jpg",
+  ],
+  "floral-print-cord-set": [
+    "/images/products/floral-print-cord-set-2.jpg",
+    "/images/products/floral-print-cord-set.jpg",
+  ],
+  "embroidery-printed-cord-set": ["/images/products/embroidery-printed-cord-set.jpg"],
+  "cotton-three-piece-anarkali": [
+    "/images/products/cotton-three-piece-anarkali.jpg",
+    "/images/products/cotton-three-piece-anarkali-2.jpg",
+  ],
+  "lace-trim-cord-set": [
+    "/images/products/lace-trim-cord-set.jpg",
+    "/images/products/lace-trim-cord-set-2.jpg",
+  ],
+  "checked-short-top": ["/images/products/checked-short-top.jpg"],
 };
 
 const postImages: Record<string, string> = {
@@ -108,10 +121,13 @@ const postImages: Record<string, string> = {
   "quiet-living-starts-in-the-closet": "/images/about/3.jpg",
 };
 
+export function productGallery(slug: string): string[] {
+  return productImages[slug] ?? ["/images/hero.jpg"];
+}
+
 export function productImage(slug: string, index = 0): string {
-  const slugImages = productImages[slug];
-  if (slugImages) return slugImages[index % slugImages.length];
-  return "/images/hero.jpg";
+  const gallery = productGallery(slug);
+  return gallery[index % gallery.length];
 }
 
 export function postImage(slug: string): string {

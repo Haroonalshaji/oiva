@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { useState } from "react";
-import { productImage } from "@/lib/images";
+import { productGallery } from "@/lib/images";
 import { openProductOrder } from "@/lib/order-contact";
 import { formatPrice } from "@/lib/utils";
 import type { Product } from "@/types";
@@ -26,7 +26,8 @@ interface ProductDetailProps {
 }
 
 export function ProductDetail({ product }: ProductDetailProps) {
-  const [size, setSize] = useState(product.sizes[1] ?? product.sizes[0]);
+  const [size, setSize] = useState(product.sizes[0]);
+  const gallery = productGallery(product.slug);
 
   const handleAddToBag = () => {
     openProductOrder(product, size);
@@ -38,9 +39,9 @@ export function ProductDetail({ product }: ProductDetailProps) {
         <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={{ base: 8, lg: 16 }}>
           <FadeIn>
             <VStack spacing={4}>
-              {[0, 1].map((i) => (
+              {gallery.map((src, i) => (
                 <Box
-                  key={i}
+                  key={src}
                   position="relative"
                   w="full"
                   aspectRatio={3 / 4}
@@ -51,7 +52,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
                   _hover={{ "& img": { transform: "scale(1.02)" } }}
                 >
                   <Image
-                    src={productImage(product.slug, i)}
+                    src={src}
                     alt={`${product.name} — view ${i + 1}`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"

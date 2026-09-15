@@ -26,7 +26,7 @@ export function ProductsPageClient() {
           <SectionHeading
             as="h1"
             title="Women's clothing collection"
-            description="Cotton kurtas, tunics, shirts and maxi dresses — garments designed to become the foundation of a considered wardrobe."
+            description="Co-ords, tunics and Anarkali suits — modest everyday pieces in cotton, rayon, and imported fabrics."
           />
         </FadeIn>
 

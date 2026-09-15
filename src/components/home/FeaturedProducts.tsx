@@ -1,11 +1,12 @@
-import { Box, Container, SimpleGrid } from "@chakra-ui/react";
+import { Box, Button, Container, Flex, SimpleGrid } from "@chakra-ui/react";
+import NextLink from "next/link";
 import { getFeaturedProducts } from "@/data/products";
 import { ProductCard } from "@/components/shared/ProductCard";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { FadeIn } from "@/components/shared/FadeIn";
 
 export function FeaturedProducts() {
-  const products = getFeaturedProducts();
+  const products = getFeaturedProducts().slice(0, 4);
 
   return (
     <Box as="section" py={{ base: 16, md: 24 }} bg="oiva.ivory">
@@ -13,8 +14,8 @@ export function FeaturedProducts() {
         <FadeIn>
           <SectionHeading
             eyebrow="the edit"
-            title="Featured women's clothing"
-            description="Cotton kurtas, tunics, shirts and maxi dresses from the current collection — each designed to anchor a considered wardrobe."
+            title="The collection"
+            description="Co-ords, tunics and Anarkali suits — modest everyday pieces in cotton, rayon, and imported fabrics."
           />
         </FadeIn>
         <SimpleGrid columns={{ base: 1, sm: 2, lg: 4 }} spacing={{ base: 8, md: 10 }} mt={12}>
@@ -24,6 +25,11 @@ export function FeaturedProducts() {
             </FadeIn>
           ))}
         </SimpleGrid>
+        <Flex justify="center" mt={{ base: 10, md: 14 }}>
+          <Button as={NextLink} href="/products" size="lg">
+            View all products
+          </Button>
+        </Flex>
       </Container>
     </Box>
   );

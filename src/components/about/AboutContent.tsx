@@ -168,7 +168,7 @@ export function AboutContent() {
           </Box>
         </FadeIn>
 
-        <FadeIn>
+        {/* <FadeIn>
           <Heading as="h2" textStyle="subhead" textAlign="center" mb={10}>
             The atelier
           </Heading>
@@ -214,7 +214,7 @@ export function AboutContent() {
               </VStack>
             </FadeIn>
           ))}
-        </Grid>
+        </Grid> */}
       </Container>
     </Box>
   );
