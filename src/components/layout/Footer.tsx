@@ -34,27 +34,27 @@ export function Footer() {
 
   return (
     <Box as="footer" bg="oiva.cocoaDeep" color="oiva.ivory" mt="auto">
-      <Container maxW="1440px" px={{ base: 5, md: 10 }} py={{ base: 12, md: 16 }}>
+      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 10 }} py={{ base: 12, md: 16 }}>
         <FadeIn>
           <Grid
-            templateColumns={{ base: "1fr", sm: "1fr 1fr", lg: "1.3fr 1fr 1fr 1fr 1.2fr" }}
+            templateColumns={{ base: "1fr", md: "1fr 1fr", lg: "1.3fr 1fr 1fr 1fr 1.2fr" }}
             gap={{ base: 10, lg: 10 }}
           >
-            <GridItem colSpan={{ base: 1, sm: 2, lg: 1 }}>
+            <GridItem colSpan={{ base: 1, md: 2, lg: 1 }}>
               <VStack align="flex-start" spacing={6}>
                 <Box
                   as="img"
                   src="/logo/oivah-lockup.svg"
                   alt="Oivah Feminine Atelier"
-                  h="72px"
+                  h={{ base: "56px", md: "72px" }}
                   w="auto"
-                  maxW="180px"
+                  maxW="100%"
                   display="block"
                 />
                 <Text
                   fontFamily="var(--font-cormorant), 'Cormorant Garamond', serif"
                   fontStyle="italic"
-                  fontSize={{ base: "md", md: "lg" }}
+                  fontSize={{ base: "0.9375rem", md: "1.125rem" }}
                   lineHeight={1.6}
                   color="oiva.champagne"
                   maxW="280px"

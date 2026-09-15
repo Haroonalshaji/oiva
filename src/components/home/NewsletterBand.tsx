@@ -3,6 +3,7 @@
 import { Box, Button, Container, Flex, FormControl, Heading, Input, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { FadeIn } from "@/components/shared/FadeIn";
+import { typeScale } from "@/theme/foundations/typography";
 
 export function NewsletterBand() {
   const [email, setEmail] = useState("");
@@ -18,16 +19,16 @@ export function NewsletterBand() {
 
   return (
     <Box as="section" bg="oiva.ivory" py={{ base: 16, md: 20 }}>
-      <Container maxW="720px" px={{ base: 5, md: 10 }}>
+      <Container maxW="720px" px={{ base: 4, sm: 5, md: 10 }}>
         <FadeIn>
-          <Box layerStyle="glassPanel" p={{ base: 8, md: 10 }} w="full">
+          <Box layerStyle="glassPanel" p={{ base: 5, md: 10 }} w="full">
             <VStack spacing={8} textAlign="center">
               <Heading
                 as="h2"
                 fontFamily="var(--font-cormorant), 'Cormorant Garamond', serif"
                 fontStyle="italic"
                 fontWeight={400}
-                fontSize={{ base: "xl", md: "2xl" }}
+                fontSize={typeScale.italicLg}
                 color="oiva.cocoa"
               >
                 Join us for notes on craft, style, and quiet living

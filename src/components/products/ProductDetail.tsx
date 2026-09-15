@@ -18,6 +18,7 @@ import { useState } from "react";
 import { productGallery } from "@/lib/images";
 import { openProductOrder } from "@/lib/order-contact";
 import { formatPrice } from "@/lib/utils";
+import { typeScale } from "@/theme/foundations/typography";
 import type { Product } from "@/types";
 import { FadeIn } from "@/components/shared/FadeIn";
 
@@ -35,7 +36,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
 
   return (
     <Box pt={{ base: 24, md: 32 }} pb={{ base: 16, md: 24 }}>
-      <Container maxW="1440px" px={{ base: 5, md: 10 }}>
+      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 10 }}>
         <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={{ base: 8, lg: 16 }}>
           <FadeIn>
             <VStack spacing={4}>
@@ -77,17 +78,14 @@ export function ProductDetail({ product }: ProductDetailProps) {
               </Text>
               <Text
                 as="h1"
-                fontFamily="var(--font-playfair), 'Playfair Display', serif"
-                fontSize={{ base: "1.75rem", sm: "2rem", md: "2.5rem" }}
-                fontWeight={500}
-                letterSpacing="0.02em"
-                color="oiva.cocoa"
+                textStyle="pageTitle"
+                wordBreak="break-word"
               >
                 {product.name}
               </Text>
               <Text
                 fontFamily="var(--font-jost), 'Jost', sans-serif"
-                fontSize={{ base: "lg", md: "xl" }}
+                fontSize={typeScale.bodyLg}
                 fontWeight={500}
                 color="oiva.cocoa"
                 letterSpacing="0.02em"

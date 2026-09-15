@@ -75,24 +75,21 @@ export function ContactContent() {
 
   return (
     <Box pt={{ base: 24, md: 32 }} pb={{ base: 16, md: 24 }}>
-      <Container maxW="1440px" px={{ base: 5, md: 10 }}>
+      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 10 }}>
         <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={{ base: 12, lg: 20 }}>
           <FadeIn>
             <VStack align="flex-start" spacing={8}>
               <VStack align="flex-start" spacing={4}>
                 <Text
                   as="h1"
-                  fontFamily="var(--font-playfair), 'Playfair Display', serif"
-                  fontSize={{ base: "1.75rem", sm: "2rem", md: "2.5rem" }}
-                  fontWeight={500}
-                  color="oiva.cocoa"
+                  textStyle="pageTitle"
                 >
                   Contact
                 </Text>
                 <Text
                   fontFamily="var(--font-cormorant), 'Cormorant Garamond', serif"
                   fontStyle="italic"
-                  fontSize={{ base: "md", md: "lg" }}
+                  fontSize={{ base: "0.9375rem", md: "1.125rem" }}
                   color="oiva.rose"
                 >
                   We welcome your note — whether an enquiry, a visit, or simply a conversation about craft.
@@ -253,12 +250,7 @@ export function ContactContent() {
               </Text>
               <Text
                 as="h2"
-                fontFamily="var(--font-playfair), 'Playfair Display', serif"
-                fontSize={{ base: "xl", md: "2xl" }}
-                fontWeight={500}
-                letterSpacing="0.04em"
-                color="oiva.cocoa"
-                lineHeight={1.2}
+                textStyle="subhead"
               >
                 Thank you for reaching out
               </Text>

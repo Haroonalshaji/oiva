@@ -19,7 +19,7 @@ export function JournalPost({ post }: JournalPostProps) {
 
   return (
     <Box pt={{ base: 28, md: 32 }} pb={{ base: 16, md: 24 }}>
-      <Container maxW="1440px" px={{ base: 5, md: 10 }}>
+      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 10 }}>
         <FadeIn>
           <Box
             position="relative"
@@ -48,12 +48,8 @@ export function JournalPost({ post }: JournalPostProps) {
               </Text>
               <Text
                 as="h1"
-                fontFamily="var(--font-playfair), 'Playfair Display', serif"
-                fontSize={{ base: "1.75rem", sm: "2rem", md: "2.75rem" }}
-                fontWeight={500}
-                letterSpacing="0.02em"
+                textStyle="pageTitle"
                 lineHeight={1.2}
-                color="oiva.cocoa"
               >
                 {post.title}
               </Text>

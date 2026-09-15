@@ -42,7 +42,7 @@ export function Header() {
         borderBottom="1px solid"
         borderColor="rgba(255, 255, 255, 0.45)"
       >
-        <Container maxW="1440px" px={{ base: 5, md: 10 }} py={{ base: 3, md: 4 }}>
+        <Container maxW="1440px" px={{ base: 4, sm: 5, md: 10 }} py={{ base: 2.5, md: 4 }}>
           <Flex align="center" justify="space-between">
             <HStack spacing={8} display={{ base: "none", lg: "flex" }} flex={1}>
               {navItems.slice(0, 2).map((item) => (
@@ -60,14 +60,15 @@ export function Header() {
               ))}
             </HStack>
 
-            <Box flex={{ base: 1, lg: "none" }} textAlign={{ base: "left", lg: "center" }}>
+            <Box flex={{ base: 1, lg: "none" }} textAlign={{ base: "left", lg: "center" }} minW={0} pr={2}>
               <Link
                 as={NextLink}
                 href="/"
                 onClick={onClose}
                 aria-label="Oivah Feminine Atelier home"
                 display="inline-block"
-                h={{ base: "56px", md: "68px" }}
+                h={{ base: "48px", sm: "56px", md: "68px" }}
+                maxW={{ base: "150px", sm: "180px", md: "220px" }}
               >
                 <Box
                   as="img"
@@ -75,6 +76,7 @@ export function Header() {
                   alt="Oivah Feminine Atelier"
                   h="100%"
                   w="auto"
+                  maxW="100%"
                   display="block"
                 />
               </Link>
@@ -175,7 +177,7 @@ export function Header() {
                     href={item.href}
                     onClick={onClose}
                     textStyle="navLink"
-                    fontSize="sm"
+                    fontSize={{ base: "0.8125rem", md: "0.875rem" }}
                     letterSpacing="0.2em"
                     color={pathname === item.href ? "oiva.rose" : "oiva.cocoa"}
                     _hover={{ color: "oiva.rose", textDecoration: "none" }}

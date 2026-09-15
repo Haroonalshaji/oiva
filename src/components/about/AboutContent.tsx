@@ -16,7 +16,7 @@ const team = [
 export function AboutContent() {
   return (
     <Box pt={{ base: 28, md: 32 }} pb={{ base: 16, md: 24 }}>
-      <Container maxW="1440px" px={{ base: 5, md: 10 }}>
+      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 10 }}>
         <FadeIn>
           <VStack spacing={6} maxW="720px" mx="auto" textAlign="center" mb={{ base: 16, md: 24 }}>
             <Text

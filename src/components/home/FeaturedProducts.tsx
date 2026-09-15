@@ -10,7 +10,7 @@ export function FeaturedProducts() {
 
   return (
     <Box as="section" py={{ base: 16, md: 24 }} bg="oiva.ivory">
-      <Container maxW="1440px" px={{ base: 5, md: 10 }}>
+      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 10 }}>
         <FadeIn>
           <SectionHeading
             eyebrow="the edit"
@@ -18,15 +18,25 @@ export function FeaturedProducts() {
             description="Co-ords, tunics and Anarkali suits — modest everyday pieces in cotton, rayon, and imported fabrics."
           />
         </FadeIn>
-        <SimpleGrid columns={{ base: 1, sm: 2, lg: 4 }} spacing={{ base: 8, md: 10 }} mt={12}>
+        <SimpleGrid
+          columns={{ base: 1, sm: 2, lg: 4 }}
+          spacing={{ base: 8, md: 10 }}
+          mt={12}
+        >
           {products.map((product, i) => (
             <FadeIn key={product.slug} delay={i * 0.1}>
               <ProductCard product={product} index={i} priority={i < 2} />
             </FadeIn>
           ))}
         </SimpleGrid>
-        <Flex justify="center" mt={{ base: 10, md: 14 }}>
-          <Button as={NextLink} href="/products" size="lg">
+        <Flex justify="center" mt={{ base: 10, md: 14 }} px={2}>
+          <Button
+            as={NextLink}
+            href="/products"
+            size="lg"
+            w={{ base: "full", sm: "auto" }}
+            maxW={{ base: "320px", sm: "none" }}
+          >
             View all products
           </Button>
         </Flex>

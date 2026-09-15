@@ -1,4 +1,5 @@
 import { Box, Text, VStack } from "@chakra-ui/react";
+import { typeScale } from "@/theme/foundations/typography";
 
 interface EditorialQuoteProps {
   quote: string;
@@ -13,7 +14,7 @@ export function EditorialQuote({ quote, light = false }: EditorialQuoteProps) {
         as="blockquote"
         fontFamily="var(--font-cormorant), 'Cormorant Garamond', serif"
         fontStyle="italic"
-        fontSize={{ base: "xl", md: "2xl" }}
+        fontSize={typeScale.italicLg}
         lineHeight={1.4}
         textAlign="center"
         color={light ? "oiva.ivory" : "oiva.cocoa"}

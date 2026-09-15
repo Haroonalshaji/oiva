@@ -21,7 +21,7 @@ export function ProductsPageClient() {
 
   return (
     <Box pt={{ base: 28, md: 32 }} pb={{ base: 16, md: 24 }}>
-      <Container maxW="1440px" px={{ base: 5, md: 10 }}>
+      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 10 }}>
         <FadeIn>
           <SectionHeading
             as="h1"

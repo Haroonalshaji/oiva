@@ -12,7 +12,7 @@ import { FadeIn } from "@/components/shared/FadeIn";
 export function JournalList() {
   return (
     <Box pt={{ base: 28, md: 32 }} pb={{ base: 16, md: 24 }}>
-      <Container maxW="1440px" px={{ base: 5, md: 10 }}>
+      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 10 }}>
         <FadeIn>
           <SectionHeading
             as="h1"
@@ -59,7 +59,7 @@ export function JournalList() {
                     <Text
                       as="h2"
                       fontFamily="var(--font-playfair), 'Playfair Display', serif"
-                      fontSize={{ base: "md", md: "lg" }}
+                      fontSize={{ base: "0.9375rem", md: "1.125rem" }}
                       fontWeight={500}
                       color="oiva.cocoa"
                       lineHeight={1.3}

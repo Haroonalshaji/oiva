@@ -5,14 +5,14 @@ import { FadeIn } from "@/components/shared/FadeIn";
 export function BrandStatement() {
   return (
     <Box as="section" py={{ base: 20, md: 28 }}>
-      <Container maxW="1440px" px={{ base: 5, md: 10 }}>
+      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 10 }}>
         <FadeIn>
           <Box layerStyle="glassPanel" p={{ base: 8, md: 10 }}>
             <VStack spacing={4} maxW="640px" mx="auto" textAlign="center">
               <Heading as="h2" textStyle="subhead">
                 An online ladies store, made in Kerala
               </Heading>
-              <Text textStyle="body" fontSize={{ base: "md", md: "lg" }} lineHeight={1.8}>
+              <Text textStyle="body" fontSize={{ base: "0.9375rem", md: "1.125rem" }} lineHeight={1.8}>
                 {brandStatement}
               </Text>
             </VStack>

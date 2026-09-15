@@ -10,16 +10,13 @@ export function ReturnPolicyContent() {
 
   return (
     <Box pt={{ base: 24, md: 32 }} pb={{ base: 16, md: 24 }}>
-      <Container maxW="720px" px={{ base: 5, md: 10 }}>
+      <Container maxW="720px" px={{ base: 4, sm: 5, md: 10 }}>
         <FadeIn>
           <VStack align="flex-start" spacing={10}>
             <VStack align="flex-start" spacing={4}>
               <Text
                 as="h1"
-                fontFamily="var(--font-playfair), 'Playfair Display', serif"
-                fontSize={{ base: "1.75rem", sm: "2rem", md: "2.5rem" }}
-                fontWeight={500}
-                color="oiva.cocoa"
+                textStyle="pageTitle"
                 letterSpacing="0.04em"
               >
                 Returns / Exchanges

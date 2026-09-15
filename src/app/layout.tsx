@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Jost, Playfair_Display } from "next/font/google";
 import { Box } from "@chakra-ui/react";
 import { Providers } from "@/components/providers/Providers";
@@ -30,6 +30,11 @@ const jost = Jost({
   variable: "--font-jost",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -74,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <JsonLd />
         <Providers>
-          <Box minH="100vh" display="flex" flexDirection="column" bg="oiva.ivory">
+          <Box minH={{ base: "100svh", md: "100dvh" }} display="flex" flexDirection="column" bg="oiva.ivory" overflowX="hidden">
             {!comingSoon && <Header />}
             <Box as="main" flex={1}>
               {children}

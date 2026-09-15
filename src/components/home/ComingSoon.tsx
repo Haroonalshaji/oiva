@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { siteConfig } from "@/data/site";
 import { imageConfig } from "@/lib/images";
+import { typeScale } from "@/theme/foundations/typography";
 
 export function ComingSoon() {
   return (
@@ -76,7 +77,7 @@ export function ComingSoon() {
             <Text
               as="h1"
               fontFamily="var(--font-playfair), 'Playfair Display', serif"
-              fontSize={{ base: "2rem", sm: "2.5rem", md: "3rem" }}
+              fontSize={typeScale.hero}
               fontWeight={500}
               letterSpacing="0.04em"
               lineHeight={1.15}
@@ -94,7 +95,7 @@ export function ComingSoon() {
             <Text
               fontFamily="var(--font-jost), 'Jost', sans-serif"
               fontWeight={300}
-              fontSize={{ base: "md", md: "lg" }}
+              fontSize={{ base: "0.9375rem", md: "1.125rem" }}
               lineHeight={1.75}
               color="oiva.gold"
               maxW="420px"

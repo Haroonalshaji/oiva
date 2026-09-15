@@ -1,7 +1,7 @@
 import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
 import { oivaColors } from "./foundations/colors";
 import { glassLayerStyles } from "./foundations/glass";
-import { fontFamilies, textStyles } from "./foundations/typography";
+import { fontFamilies, textStyles, typeScale } from "./foundations/typography";
 
 const config: ThemeConfig = {
   initialColorMode: "light",
@@ -25,6 +25,12 @@ const theme = extendTheme({
         bg: "oiva.ivory",
         color: "oiva.ink",
         scrollBehavior: "smooth",
+        overflowX: "hidden",
+        maxW: "100%",
+        fontSize: { base: "15px", md: "16px" },
+      },
+      img: {
+        maxW: "100%",
       },
       "::selection": {
         bg: "oiva.champagne",
@@ -44,11 +50,30 @@ const theme = extendTheme({
       baseStyle: {
         fontFamily: fontFamilies.body,
         fontWeight: 500,
-        fontSize: "0.6875rem",
-        letterSpacing: "0.2em",
+        letterSpacing: { base: "0.14em", md: "0.2em" },
         textTransform: "uppercase",
         borderRadius: "2px",
         transition: "all 0.35s ease-out",
+      },
+      sizes: {
+        sm: {
+          fontSize: typeScale.button,
+          px: 4,
+          py: 2,
+          minH: "40px",
+        },
+        md: {
+          fontSize: typeScale.button,
+          px: 5,
+          py: 2.5,
+          minH: "44px",
+        },
+        lg: {
+          fontSize: typeScale.buttonLg,
+          px: { base: 5, md: 8 },
+          py: 3,
+          minH: "48px",
+        },
       },
       variants: {
         outline: {
@@ -92,6 +117,7 @@ const theme = extendTheme({
       },
       defaultProps: {
         variant: "outline",
+        size: "md",
       },
     },
     Input: {
@@ -104,7 +130,7 @@ const theme = extendTheme({
             borderRadius: "2px",
             fontFamily: fontFamilies.body,
             fontWeight: 300,
-            fontSize: "0.9375rem",
+            fontSize: { base: "0.875rem", md: "0.9375rem" },
             color: "oiva.ink",
             _placeholder: { color: "oiva.taupe" },
             _hover: { borderColor: "oiva.taupe" },
@@ -123,7 +149,7 @@ const theme = extendTheme({
             borderRadius: "2px",
             fontFamily: fontFamilies.body,
             fontWeight: 300,
-            fontSize: "0.9375rem",
+            fontSize: { base: "0.875rem", md: "0.9375rem" },
             color: "oiva.ink",
             _placeholder: { color: "oiva.taupe" },
             _hover: { borderColor: "rgba(255, 255, 255, 0.85)" },
@@ -147,7 +173,7 @@ const theme = extendTheme({
           borderRadius: "2px",
           fontFamily: fontFamilies.body,
           fontWeight: 300,
-          fontSize: "0.9375rem",
+          fontSize: { base: "0.875rem", md: "0.9375rem" },
           color: "oiva.ink",
           _placeholder: { color: "oiva.taupe" },
           _hover: { borderColor: "oiva.taupe" },
@@ -164,7 +190,7 @@ const theme = extendTheme({
           borderRadius: "2px",
           fontFamily: fontFamilies.body,
           fontWeight: 300,
-          fontSize: "0.9375rem",
+          fontSize: { base: "0.875rem", md: "0.9375rem" },
           color: "oiva.ink",
           _placeholder: { color: "oiva.taupe" },
           _hover: { borderColor: "rgba(255, 255, 255, 0.85)" },
@@ -188,7 +214,7 @@ const theme = extendTheme({
             borderRadius: "2px",
             fontFamily: fontFamilies.body,
             fontWeight: 300,
-            fontSize: "0.875rem",
+            fontSize: { base: "0.8125rem", md: "0.875rem" },
             color: "oiva.ink",
             _hover: { borderColor: "oiva.taupe" },
             _focus: {
@@ -206,7 +232,7 @@ const theme = extendTheme({
             borderRadius: "2px",
             fontFamily: fontFamilies.body,
             fontWeight: 300,
-            fontSize: "0.875rem",
+            fontSize: { base: "0.8125rem", md: "0.875rem" },
             color: "oiva.ink",
             _hover: { borderColor: "rgba(255, 255, 255, 0.85)" },
             _focus: {

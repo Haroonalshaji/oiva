@@ -17,14 +17,14 @@ export default function NotFound() {
       display="flex"
       alignItems="center"
     >
-      <Container maxW="720px" px={{ base: 5, md: 10 }}>
+      <Container maxW="720px" px={{ base: 4, sm: 5, md: 10 }}>
         <FadeIn>
           <VStack spacing={8} textAlign="center">
             <Box layerStyle="glassPanel" px={{ base: 10, md: 14 }} py={{ base: 8, md: 10 }} w="full">
               <VStack spacing={6}>
                 <Text
                   fontFamily="var(--font-playfair), 'Playfair Display', serif"
-                  fontSize={{ base: "4rem", md: "5rem" }}
+                  fontSize={{ base: "3rem", md: "4.5rem" }}
                   fontWeight={500}
                   letterSpacing="0.08em"
                   color="oiva.champagne"
@@ -35,8 +35,8 @@ export default function NotFound() {
                 <Box w="48px" h="1px" bg="oiva.gold" />
                 <Text
                   as="h1"
-                  fontFamily="var(--font-playfair), 'Playfair Display', serif"
-                  fontSize={{ base: "1.5rem", md: "2rem" }}
+                  textStyle="pageTitle"
+                  textAlign="center"
                   fontWeight={500}
                   letterSpacing="0.04em"
                   color="oiva.cocoa"
@@ -46,7 +46,7 @@ export default function NotFound() {
                 <Text
                   fontFamily="var(--font-cormorant), 'Cormorant Garamond', serif"
                   fontStyle="italic"
-                  fontSize={{ base: "md", md: "lg" }}
+                  fontSize={{ base: "0.9375rem", md: "1.125rem" }}
                   color="oiva.rose"
                   lineHeight={1.7}
                   maxW="480px"

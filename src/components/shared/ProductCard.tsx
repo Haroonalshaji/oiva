@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { productImage } from "@/lib/images";
 import { formatPrice } from "@/lib/utils";
+import { typeScale } from "@/theme/foundations/typography";
 import type { Product } from "@/types";
 
 interface ProductCardProps {
@@ -21,6 +22,8 @@ export function ProductCard({ product, index = 0, priority = false, headingAs = 
         align="stretch"
         spacing={4}
         role="group"
+        minW={0}
+        w="full"
         transition="opacity 0.35s ease-out"
         _hover={{ opacity: 0.92 }}
       >
@@ -47,17 +50,18 @@ export function ProductCard({ product, index = 0, priority = false, headingAs = 
           <Text
             as={headingAs}
             fontFamily="var(--font-playfair), 'Playfair Display', serif"
-            fontSize={{ base: "sm", md: "md" }}
+            fontSize={typeScale.card}
             fontWeight={500}
             color="oiva.cocoa"
             letterSpacing="0.02em"
+            wordBreak="break-word"
           >
             {product.name}
           </Text>
           <Text textStyle="caption">{product.material}</Text>
           <Text
             fontFamily="var(--font-jost), 'Jost', sans-serif"
-            fontSize={{ base: "sm", md: "md" }}
+            fontSize={typeScale.card}
             fontWeight={500}
             color="oiva.cocoa"
             letterSpacing="0.01em"

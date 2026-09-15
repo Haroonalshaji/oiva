@@ -6,7 +6,7 @@ import { FadeIn } from "@/components/shared/FadeIn";
 export function Pillars() {
   return (
     <Box as="section" py={{ base: 16, md: 24 }} bg="oiva.pearl" borderY="1px solid" borderColor="oiva.hairline">
-      <Container maxW="1440px" px={{ base: 5, md: 10 }}>
+      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 10 }}>
         <FadeIn>
           <SectionHeading title="Our pillars" />
         </FadeIn>
