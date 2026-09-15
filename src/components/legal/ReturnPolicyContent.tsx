@@ -73,16 +73,18 @@ export function ReturnPolicyContent() {
                     How returns are collected
                   </Text>
                   <Text textStyle="body" fontSize="sm">
-                    After we acknowledge your return request, we will arrange for a reverse pick-up
-                    from the address in the order. Our delivery partner will collect the package
-                    from you within <strong>1–3 days</strong> and ship it to us. Once the return is
-                    picked up, it takes <strong>5–7 days</strong> for us to initiate a refund or
-                    exchange.
+                    After we acknowledge your return request, we will arrange for the parcel to come
+                    back to us through <strong>India Post</strong>, our only courier partner. Where
+                    India Post offers doorstep pick-up at your pin code, we will book a reverse
+                    pick-up. Collection typically happens within <strong>1–3 days</strong> of
+                    booking. Once the return is in transit, it takes <strong>5–7 days</strong> after
+                    we receive it for us to start a refund or exchange.
                   </Text>
                   <Text textStyle="body" fontSize="sm">
-                    In case neither of our courier partners, Bluedart or Delhivery, has pick-up
-                    services in your pin code, you will have to send us the items back via a
-                    reputed courier service and send us the tracking details.
+                    If India Post does not offer pick-up at your pin code, you will need to send the
+                    items back to us by India Post (Speed Post or Registered Post) and share the
+                    tracking number. We do not use private couriers such as Bluedart, Delhivery, or
+                    others.
                   </Text>
                 </VStack>
 
@@ -109,13 +111,13 @@ export function ReturnPolicyContent() {
                     textStyle="label"
                     color="oiva.rose"
                   >
-                    COD and prepaid refunds
+                    Prepaid refunds
                   </Text>
                   <Text textStyle="body" fontSize="sm">
-                    For COD orders, the refund will be processed via bank transfer. The bank
-                    details have to be entered on our return portal while initiating the return.
-                    For prepaid orders, the refund will be initiated via the original payment
-                    method you used during the purchase.
+                    All OIVAH orders are prepaid. We do not offer cash on delivery (COD). Approved
+                    refunds are sent back by the same prepaid method you used, or by bank transfer
+                    if that method cannot be reversed. Share the bank details we ask for when you
+                    start the return, if we need them.
                   </Text>
                 </VStack>
 

@@ -55,7 +55,7 @@ export const legalDocs = {
         title: "WhatsApp, email, and other processors",
         paragraphs: [
           "Orders usually start in WhatsApp. Meta Platforms provides WhatsApp. Messages you send there are also subject to WhatsApp’s own terms and privacy policy.",
-          "Contact-form messages are emailed to our studio using our email provider. The site is hosted by our web host. These parties process data only to provide their service to us.",
+          "Contact-form messages are emailed to our studio using our email provider. Parcels are sent through India Post, which needs your name, address, and phone number to deliver. The site is hosted by our web host. These parties process data only to provide their service to us.",
           "We do not sell your personal information. We do not share it for advertising.",
         ],
       },
@@ -155,7 +155,7 @@ export const legalDocs = {
       {
         title: "How to order",
         paragraphs: [
-          "OIVAH does not take payment through an automated checkout on this website. You select a garment and size, then continue via WhatsApp (or email or phone). We confirm availability, size, shipping, and the amount payable before the order is accepted.",
+          "OIVAH does not take payment through an automated checkout on this website. You select a garment and size, then continue via WhatsApp (or email or phone). We confirm availability, size, shipping, and the prepaid amount before the order is accepted. We do not offer cash on delivery.",
           "A contract is formed when we confirm your order in writing on WhatsApp, email, or another channel we both use. We may refuse or cancel an order if an item is unavailable, if information is incomplete, or if we reasonably suspect misuse.",
         ],
       },
@@ -163,7 +163,7 @@ export const legalDocs = {
         title: "Products, prices, and payment",
         paragraphs: [
           "We describe garments as accurately as we can. Fabric, print placement, and colour can vary slightly from photographs and from piece to piece. That is the nature of the materials we use.",
-          "Prices are in Indian Rupees (INR) and are shown on the product page. Shipping charges, if any, are confirmed before you pay. Payment instructions are given when we confirm the order. Until payment is received as agreed, we may hold dispatch.",
+          "Prices are in Indian Rupees (INR) and are shown on the product page. Shipping charges, if any, are confirmed before you pay. We accept prepaid payment only. We do not offer cash on delivery (COD). Payment instructions are given when we confirm the order. Dispatch begins only after payment is received as agreed.",
         ],
       },
       {
@@ -187,7 +187,7 @@ export const legalDocs = {
       {
         title: "Liability",
         paragraphs: [
-          "We take care with garments and with dispatch. We are not liable for delays or failure caused by events outside our reasonable control, including courier disruption. Nothing in these terms limits liability that cannot be limited under Indian law, including liability for death or personal injury caused by our negligence, or for fraud.",
+          "We take care with garments and with dispatch. We are not liable for delays or failure caused by events outside our reasonable control, including disruption at India Post. Nothing in these terms limits liability that cannot be limited under Indian law, including liability for death or personal injury caused by our negligence, or for fraud.",
           "To the extent permitted by law, our total liability for an order is limited to the amount you paid for that order.",
         ],
       },
@@ -208,7 +208,7 @@ export const legalDocs = {
   shipping: {
     slug: "shipping",
     title: "Shipping Policy",
-    intro: "How OIVAH delivers orders across India after your order is confirmed.",
+    intro: "How OIVAH delivers orders across India through India Post after prepaid confirmation.",
     lastUpdated: legalLastUpdated,
     sections: [
       {
@@ -218,27 +218,33 @@ export const legalDocs = {
         ],
       },
       {
-        title: "When dispatch happens",
+        title: "Courier partner",
         paragraphs: [
-          "Dispatch begins only after we confirm the order on WhatsApp, email, or phone — including size, address, shipping charge, and payment as agreed. We will share an estimated dispatch and delivery window at confirmation. That window is an estimate, not a guarantee.",
+          "India Post (Department of Posts, Government of India) is our only courier partner. We do not ship through private couriers. Delivery times follow India Post service for your pin code. We will share the tracking number once the parcel is booked.",
+        ],
+      },
+      {
+        title: "Payment before dispatch",
+        paragraphs: [
+          "All orders are prepaid. We do not offer cash on delivery (COD). Dispatch begins only after we confirm the order on WhatsApp, email, or phone — including size, address, shipping charge — and after payment is received as agreed. We will share an estimated dispatch and delivery window at confirmation. That window is an estimate, not a guarantee.",
         ],
       },
       {
         title: "Charges",
         paragraphs: [
-          "Shipping charges depend on destination, parcel weight, and the courier available for your pin code. Any charge is told to you before you pay. There is no hidden fee after confirmation.",
+          "Shipping charges depend on destination, parcel weight, and India Post rates for your pin code. Any charge is told to you before you pay. There is no hidden fee after confirmation.",
         ],
       },
       {
         title: "Your address",
         paragraphs: [
-          "Please give a complete, accurate delivery address and a reachable phone number. We are not responsible for delay, return-to-sender, or loss caused by an incomplete or incorrect address. Extra courier fees for a re-attempt or re-dispatch, where they apply, are payable by you.",
+          "Please give a complete, accurate delivery address and a reachable phone number. We are not responsible for delay, return-to-sender, or loss caused by an incomplete or incorrect address. Extra India Post fees for a re-attempt or re-dispatch, where they apply, are payable by you.",
         ],
       },
       {
         title: "Delays and risk in transit",
         paragraphs: [
-          "Couriers may be delayed by weather, strikes, peak season, or local restrictions. We will update you if we learn of a delay.",
+          "India Post may be delayed by weather, strikes, peak season, or local restrictions. We will update you if we learn of a delay.",
           "If a parcel arrives damaged, keep the packaging and contact us. We will handle it under our Return & Exchange Policy — refunds and exchanges within 15 days of delivery.",
         ],
       },

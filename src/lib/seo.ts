@@ -140,7 +140,7 @@ export const seo = {
   returns: createPageMetadata({
     title: "Return & Exchange Policy | OIVAH",
     description:
-      "OIVAH return and exchange policy — refunds and exchanges within 15 days of delivery, reverse pick-up, and refunds for COD and prepaid orders.",
+      "OIVAH return and exchange policy — refunds and exchanges within 15 days of delivery, India Post returns, prepaid orders only (no COD).",
     path: "/returns",
     absoluteTitle: true,
     keywords: ["OIVAH return policy", "ladies wear exchange India"],
@@ -172,7 +172,7 @@ export const seo = {
   shipping: createPageMetadata({
     title: "Shipping Policy | OIVAH",
     description:
-      "OIVAH shipping policy — pan-India delivery after WhatsApp order confirmation, charges, timelines, and what to do if a parcel arrives damaged.",
+      "OIVAH shipping policy — pan-India delivery by India Post after prepaid WhatsApp confirmation. No COD. Charges, timelines, and damaged parcels.",
     path: "/shipping",
     absoluteTitle: true,
     keywords: ["OIVAH shipping policy", "ladies wear delivery India"],
