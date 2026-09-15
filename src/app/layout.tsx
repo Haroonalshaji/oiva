@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/data/site";
 import { defaultDescription, seoKeywords, ogImage, indexFollow, canonicalUrl } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { Analytics } from "@vercel/analytics/react";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {!comingSoon && <Footer />}
           </Box>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );

@@ -48,6 +48,7 @@ export const legalDocs = {
           "Reply to enquiries sent through the website, email, phone, or WhatsApp.",
           "Send shipping updates and handle returns, exchanges, or damage claims.",
           "Protect the site from spam and abuse.",
+          "Understand which pages are visited, using cookieless Vercel Web Analytics.",
           "Send occasional notes on craft and style only if you ask to join the newsletter.",
         ],
       },
@@ -117,7 +118,8 @@ export const legalDocs = {
       {
         title: "Cookies we do not use",
         paragraphs: [
-          "We do not currently use advertising cookies, social-media tracking pixels, or third-party analytics cookies on oivah.com. The newsletter field in the footer does not set a tracking cookie; it only records what you type in your browser until you submit.",
+          "We do not currently use advertising cookies, social-media tracking pixels, or third-party marketing cookies on oivah.com. The newsletter field in the footer does not set a tracking cookie; it only records what you type in your browser until you submit.",
+          "We use Vercel Web Analytics to count page views. It is privacy-friendly and does not use cookies or store identifiable visitor profiles.",
         ],
       },
       {
@@ -129,7 +131,7 @@ export const legalDocs = {
       {
         title: "Updates",
         paragraphs: [
-          "If we later add analytics or other optional cookies, we will update this policy and, where required, ask for your consent before those cookies run.",
+          "If we later add optional tracking cookies, we will update this policy and, where required, ask for your consent before those cookies run.",
         ],
       },
     ],
