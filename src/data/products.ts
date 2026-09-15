@@ -11,7 +11,7 @@ export const products: Product[] = [
     fabric: "Premium imported fabric",
     care: "Gentle machine wash cold, hang dry. Iron on low.",
     category: "Tops",
-    sizes: ["Free size (upto XXL)"],
+    sizes: ["S", "M", "L", "XL", "XXL"],
     featured: true,
   },
   {
@@ -24,7 +24,7 @@ export const products: Product[] = [
     fabric: "Imported material",
     care: "Gentle machine wash cold, hang dry. Iron on low.",
     category: "Sets",
-    sizes: ["Free size (upto XXL)"],
+    sizes: ["S", "M", "L", "XL", "XXL"],
     featured: true,
   },
   {
@@ -37,7 +37,7 @@ export const products: Product[] = [
     fabric: "Imported material",
     care: "Gentle machine wash cold, hang dry. Iron on low.",
     category: "Sets",
-    sizes: ["Free size (upto XXL)"],
+    sizes: ["S", "M", "L", "XL", "XXL"],
     featured: true,
   },
   {
@@ -63,7 +63,7 @@ export const products: Product[] = [
     fabric: "Premium imported material",
     care: "Gentle machine wash cold, hang dry. Iron on low.",
     category: "Sets",
-    sizes: ["Free size (upto XXL)"],
+    sizes: ["S", "M", "L", "XL", "XXL"],
     featured: true,
   },
   {
