@@ -140,7 +140,7 @@ export const seo = {
   returns: createPageMetadata({
     title: "Return & Exchange Policy | OIVAH",
     description:
-      "OIVAH return and exchange policy — damage claims within 24 hours, WhatsApp support, credit notes, and cancellation terms for our Kerala ladies store.",
+      "OIVAH return and exchange policy — refunds and exchanges within 15 days of delivery, reverse pick-up, and refunds for COD and prepaid orders.",
     path: "/returns",
     absoluteTitle: true,
     keywords: ["OIVAH return policy", "ladies wear exchange India"],

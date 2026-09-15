@@ -239,7 +239,7 @@ export const legalDocs = {
         title: "Delays and risk in transit",
         paragraphs: [
           "Couriers may be delayed by weather, strikes, peak season, or local restrictions. We will update you if we learn of a delay.",
-          "If a parcel arrives damaged, keep the packaging and contact us within 24 hours of delivery with the unboxing video required under our Return & Exchange Policy. We will then arrange a replacement or credit note as set out there.",
+          "If a parcel arrives damaged, keep the packaging and contact us. We will handle it under our Return & Exchange Policy — refunds and exchanges within 15 days of delivery.",
         ],
       },
       {

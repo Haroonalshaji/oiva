@@ -22,7 +22,7 @@ export function ReturnPolicyContent() {
                 color="oiva.cocoa"
                 letterSpacing="0.04em"
               >
-                Return &amp; Exchange Policy
+                Returns / Exchanges
               </Text>
               <Text
                 fontFamily="var(--font-cormorant), 'Cormorant Garamond', serif"
@@ -30,54 +30,104 @@ export function ReturnPolicyContent() {
                 fontSize={{ base: "md", md: "lg" }}
                 color="oiva.rose"
               >
-                Clear terms, so every purchase stays free of stress.
+                Refunds and exchanges within 15 days of delivery.
               </Text>
             </VStack>
 
             <Box layerStyle="glassPanel" p={{ base: 6, md: 8 }} w="full">
               <VStack align="flex-start" spacing={8}>
-                <VStack align="flex-start" spacing={4}>
-                  <Text textStyle="body">
-                    At OIVAH, we follow a customer-friendly policy so your purchases stay free of
-                    stress or issues. Please ask as many questions as you wish before confirming
-                    your order — fabric, design, measurements, or anything that helps you decide.
-                    We would love to assist you.
-                  </Text>
-                  <Text textStyle="body">
-                    You agree that certain categories of products may be exempt from returns or
-                    refunds. Such categories will be identified to you at the time of purchase.
+                <VStack align="flex-start" spacing={3}>
+                  <Text textStyle="body" fontSize="sm">
+                    If you are unsatisfied with the purchase, we offer refunds and exchanges for a
+                    period of <strong>15 days</strong> from the date of delivery of the order. To
+                    be eligible for return, the product must be in its original condition, unused
+                    and with the product tags intact. Orders once exchanged are not eligible for
+                    returns.
                   </Text>
                 </VStack>
 
                 <VStack align="flex-start" spacing={3}>
-                  <Text textStyle="label" color="oiva.rose">
-                    Please note
+                  <Text
+                    as="h2"
+                    textStyle="label"
+                    color="oiva.rose"
+                  >
+                    Items not eligible for return
                   </Text>
                   <UnorderedList spacing={2} pl={1} color="oiva.ink">
                     <ListItem textStyle="body" fontSize="sm">
-                      No refund or exchange for fancy items &amp; accessories.
+                      Fabrics
                     </ListItem>
                     <ListItem textStyle="body" fontSize="sm">
-                      No refund or exchange for size issues.
+                      Towels
                     </ListItem>
                   </UnorderedList>
                 </VStack>
 
                 <VStack align="flex-start" spacing={3}>
-                  <Text textStyle="label" color="oiva.rose">
-                    Damaged items
+                  <Text
+                    as="h2"
+                    textStyle="label"
+                    color="oiva.rose"
+                  >
+                    How returns are collected
                   </Text>
                   <Text textStyle="body" fontSize="sm">
-                    To report damage, please get in touch with our customer care within{" "}
-                    <strong>24 hours of delivery</strong>, along with the mandatory parcel opening
-                    video for verification.
+                    After we acknowledge your return request, we will arrange for a reverse pick-up
+                    from the address in the order. Our delivery partner will collect the package
+                    from you within <strong>1–3 days</strong> and ship it to us. Once the return is
+                    picked up, it takes <strong>5–7 days</strong> for us to initiate a refund or
+                    exchange.
                   </Text>
                   <Text textStyle="body" fontSize="sm">
-                    WhatsApp:{" "}
+                    In case neither of our courier partners, Bluedart or Delhivery, has pick-up
+                    services in your pin code, you will have to send us the items back via a
+                    reputed courier service and send us the tracking details.
+                  </Text>
+                </VStack>
+
+                <VStack align="flex-start" spacing={3}>
+                  <Text
+                    as="h2"
+                    textStyle="label"
+                    color="oiva.rose"
+                  >
+                    Inspection, exchange and refund
+                  </Text>
+                  <Text textStyle="body" fontSize="sm">
+                    After receiving the returned items, we will process them further after a
+                    thorough inspection to ensure they meet the conditions mentioned above. In case
+                    of exchanges to another size, it will be subject to availability at the time we
+                    receive the return package. It might take <strong>5–7 business days</strong>{" "}
+                    for the refund to get processed and credited to your account once initiated.
+                  </Text>
+                </VStack>
+
+                <VStack align="flex-start" spacing={3}>
+                  <Text
+                    as="h2"
+                    textStyle="label"
+                    color="oiva.rose"
+                  >
+                    COD and prepaid refunds
+                  </Text>
+                  <Text textStyle="body" fontSize="sm">
+                    For COD orders, the refund will be processed via bank transfer. The bank
+                    details have to be entered on our return portal while initiating the return.
+                    For prepaid orders, the refund will be initiated via the original payment
+                    method you used during the purchase.
+                  </Text>
+                </VStack>
+
+                <Box w="full" h="1px" bg="oiva.hairline" />
+
+                <VStack align="flex-start" spacing={3}>
+                  <Text textStyle="body" fontSize="sm">
+                    To start a return or exchange, write to us on WhatsApp at{" "}
                     <Link href={whatsappUrl} isExternal color="oiva.cocoa" fontWeight={500}>
                       {siteConfig.phone}
                     </Link>
-                    {" "}or email at{" "}
+                    {" "}or email{" "}
                     <Link href={`mailto:${siteConfig.email}`} color="oiva.cocoa" fontWeight={500}>
                       {siteConfig.email}
                     </Link>
@@ -86,45 +136,6 @@ export function ReturnPolicyContent() {
                       {siteConfig.phone}
                     </Link>
                     .
-                  </Text>
-                  <Text textStyle="body" fontSize="sm">
-                    Once your return request is verified, we will send you a fresh piece of the
-                    particular design. If it is not available, we will provide a credit note of
-                    the same amount, valid for <strong>30 days</strong>.
-                  </Text>
-                </VStack>
-
-                <VStack align="flex-start" spacing={3}>
-                  <Text textStyle="label" color="oiva.rose">
-                    Returnable items
-                  </Text>
-                  <UnorderedList spacing={2} pl={1} color="oiva.ink">
-                    <ListItem textStyle="body" fontSize="sm">
-                      Items for return must be in original packaging, unworn, and in original
-                      condition.
-                    </ListItem>
-                    <ListItem textStyle="body" fontSize="sm">
-                      Sale articles and orders received from overseas are not eligible for
-                      return or exchange.
-                    </ListItem>
-                  </UnorderedList>
-                </VStack>
-
-                <Box w="full" h="1px" bg="oiva.hairline" />
-
-                <VStack align="flex-start" spacing={4}>
-                  <Text
-                    as="h2"
-                    fontFamily="var(--font-playfair), 'Playfair Display', serif"
-                    fontSize={{ base: "1.25rem", md: "1.5rem" }}
-                    fontWeight={500}
-                    color="oiva.cocoa"
-                    letterSpacing="0.04em"
-                  >
-                    Cancellation &amp; Refund Policy
-                  </Text>
-                  <Text textStyle="body" fontSize="sm">
-                    No cancellations and refunds are entertained once an order is confirmed.
                   </Text>
                 </VStack>
               </VStack>
