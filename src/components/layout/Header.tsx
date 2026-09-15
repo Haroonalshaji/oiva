@@ -17,13 +17,52 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { TbShoppingBag } from "react-icons/tb";
 import { navItems } from "@/data/site";
-import { buildWhatsAppUrl } from "@/lib/order-contact";
+import { useCart } from "@/components/cart/CartProvider";
+
+function BagButton() {
+  const { itemCount, openCart } = useCart();
+
+  return (
+    <Box position="relative">
+      <IconButton
+        aria-label={itemCount ? `Open bag, ${itemCount} items` : "Open bag"}
+        icon={<TbShoppingBag size={18} strokeWidth={1.5} />}
+        variant="ghost"
+        color="oiva.cocoa"
+        _hover={{ color: "oiva.rose", bg: "transparent" }}
+        size="sm"
+        transition="color 0.3s ease-out"
+        onClick={openCart}
+      />
+      {itemCount > 0 && (
+        <Text
+          as="span"
+          position="absolute"
+          top="2px"
+          right="2px"
+          minW="14px"
+          h="14px"
+          px="3px"
+          bg="oiva.cocoa"
+          color="oiva.ivory"
+          fontSize="9px"
+          lineHeight="14px"
+          textAlign="center"
+          borderRadius="full"
+          pointerEvents="none"
+          sx={{ fontVariantNumeric: "tabular-nums" }}
+        >
+          {itemCount > 99 ? "99+" : itemCount}
+        </Text>
+      )}
+    </Box>
+  );
+}
 
 export function Header() {
   const pathname = usePathname();
   const { isOpen, onToggle, onClose } = useDisclosure();
   const isHome = pathname === "/";
-  const orderWhatsAppUrl = buildWhatsAppUrl("Hi, I'd like to place an order.");
 
   useEffect(() => {
     onClose();
@@ -96,34 +135,11 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
-              <IconButton
-                as="a"
-                href={orderWhatsAppUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Order via WhatsApp"
-                icon={<TbShoppingBag size={18} strokeWidth={1.5} />}
-                variant="ghost"
-                color="oiva.cocoa"
-                _hover={{ color: "oiva.rose", bg: "transparent" }}
-                size="sm"
-                transition="color 0.3s ease-out"
-              />
+              <BagButton />
             </HStack>
 
             <HStack spacing={4} display={{ base: "flex", lg: "none" }}>
-              <IconButton
-                as="a"
-                href={orderWhatsAppUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Order via WhatsApp"
-                icon={<TbShoppingBag size={18} strokeWidth={1.5} />}
-                variant="ghost"
-                color="oiva.cocoa"
-                _hover={{ bg: "transparent" }}
-                size="sm"
-              />
+              <BagButton />
               <Text
                 as="button"
                 textStyle="label"

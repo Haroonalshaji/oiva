@@ -12,11 +12,13 @@ import {
   Stack,
   Text,
   VStack,
+  useToast,
 } from "@chakra-ui/react";
-import Image from "next/image";
 import { useState } from "react";
+import { QtyStepper } from "@/components/cart/CartDrawer";
+import { useCart } from "@/components/cart/CartProvider";
+import { ProductGallery } from "@/components/products/ProductGallery";
 import { productGallery } from "@/lib/images";
-import { openProductOrder } from "@/lib/order-contact";
 import { formatPrice } from "@/lib/utils";
 import { typeScale } from "@/theme/foundations/typography";
 import type { Product } from "@/types";
@@ -28,41 +30,37 @@ interface ProductDetailProps {
 
 export function ProductDetail({ product }: ProductDetailProps) {
   const [size, setSize] = useState(product.sizes[0]);
+  const [qty, setQty] = useState(1);
   const gallery = productGallery(product.slug);
+  const { addItem, openCart } = useCart();
+  const toast = useToast();
 
   const handleAddToBag = () => {
-    openProductOrder(product, size);
+    addItem({
+      slug: product.slug,
+      name: product.name,
+      size,
+      price: product.price,
+      qty,
+    });
+    toast({
+      title: "Added to bag",
+      description: `${product.name} · Size ${size} · Qty ${qty}`,
+      status: "success",
+      duration: 2500,
+      isClosable: true,
+      position: "top",
+    });
+    openCart();
+    setQty(1);
   };
 
   return (
-    <Box pt={{ base: 24, md: 32 }} pb={{ base: 16, md: 24 }}>
+    <Box pt={{ base: 24, md: 28 }} pb={{ base: 16, md: 24 }}>
       <Container maxW="1440px" px={{ base: 4, sm: 5, md: 10 }}>
         <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={{ base: 8, lg: 16 }}>
           <FadeIn>
-            <VStack spacing={4}>
-              {gallery.map((src, i) => (
-                <Box
-                  key={src}
-                  position="relative"
-                  w="full"
-                  aspectRatio={3 / 4}
-                  overflow="hidden"
-                  borderRadius="2px"
-                  bg="oiva.champagne"
-                  sx={{ "& img": { transition: "transform 0.5s ease-out" } }}
-                  _hover={{ "& img": { transform: "scale(1.02)" } }}
-                >
-                  <Image
-                    src={src}
-                    alt={`${product.name} — view ${i + 1}`}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    style={{ objectFit: "cover" }}
-                    priority={i === 0}
-                  />
-                </Box>
-              ))}
-            </VStack>
+            <ProductGallery images={gallery} name={product.name} />
           </FadeIn>
 
           <FadeIn delay={0.15}>
@@ -132,6 +130,18 @@ export function ProductDetail({ product }: ProductDetailProps) {
                     ))}
                   </Stack>
                 </RadioGroup>
+                {product.sizes.length > 1 && (
+                  <Text textStyle="caption" mt={3}>
+                    Add each size separately. Same size adds to quantity.
+                  </Text>
+                )}
+              </Box>
+
+              <Box w="full">
+                <Text textStyle="label" mb={3}>
+                  Quantity
+                </Text>
+                <QtyStepper qty={qty} onChange={setQty} />
               </Box>
 
               <Button w="full" size="lg" onClick={handleAddToBag}>
