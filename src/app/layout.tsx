@@ -8,6 +8,7 @@ import { siteConfig } from "@/data/site";
 import { defaultDescription, seoKeywords, ogImage, indexFollow, canonicalUrl } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -88,6 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </Box>
         </Providers>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
