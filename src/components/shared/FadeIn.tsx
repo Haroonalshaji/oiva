@@ -12,9 +12,9 @@ export const FadeIn = forwardRef<HTMLDivElement, FadeInProps>(
   ({ children, delay = 0, duration = 0.5, style, ...props }, ref) => (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 24 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: true, margin: "0px" }}
       transition={{ duration, delay, ease: "easeOut" }}
       style={{ width: "100%", minWidth: 0, ...style }}
       {...props}

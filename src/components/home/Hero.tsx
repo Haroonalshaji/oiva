@@ -51,7 +51,7 @@ export function Hero() {
           borderRadius="2px"
         >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             style={{ width: "100%" }}
@@ -66,7 +66,7 @@ export function Hero() {
             </Text>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             style={{ width: "100%" }}
@@ -85,7 +85,7 @@ export function Hero() {
             </Heading>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.55, ease: "easeOut" }}
             style={{ width: "100%" }}
@@ -103,7 +103,7 @@ export function Hero() {
             </Text>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.65, ease: "easeOut" }}
             style={{ width: "100%" }}

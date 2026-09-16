@@ -38,7 +38,7 @@ interface PageMetadataOptions {
 
 export function canonicalUrl(path = "/"): string {
   const base = siteConfig.url.replace(/\/$/, "");
-  if (path === "/") return `${base}/`;
+  if (path === "/" || path === "") return base;
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
