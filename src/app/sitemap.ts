@@ -11,16 +11,16 @@ export const dynamic = "force-static";
 type RouteMeta = Pick<MetadataRoute.Sitemap[number], "changeFrequency" | "priority">;
 
 const routeMeta: Record<string, RouteMeta> = {
-  "/": { changeFrequency: "weekly", priority: 1 },
-  "/products": { changeFrequency: "weekly", priority: 0.9 },
-  "/contact": { changeFrequency: "monthly", priority: 0.8 },
-  "/about": { changeFrequency: "monthly", priority: 0.7 },
-  "/journal": { changeFrequency: "weekly", priority: 0.7 },
-  "/returns": { changeFrequency: "yearly", priority: 0.5 },
-  "/shipping": { changeFrequency: "yearly", priority: 0.5 },
-  "/privacy": { changeFrequency: "yearly", priority: 0.4 },
-  "/cookies": { changeFrequency: "yearly", priority: 0.4 },
-  "/terms": { changeFrequency: "yearly", priority: 0.4 },
+  "/": { changeFrequency: "daily", priority: 1 },
+  "/products": { changeFrequency: "daily", priority: 0.9 },
+  "/contact": { changeFrequency: "daily", priority: 0.9 },
+  "/about": { changeFrequency: "daily", priority: 0.9 },
+  "/journal": { changeFrequency: "daily", priority: 0.9 },
+  "/returns": { changeFrequency: "daily", priority: 0.9 },
+  "/shipping": { changeFrequency: "daily", priority: 0.9 },
+  "/privacy": { changeFrequency: "daily", priority: 0.9 },
+  "/cookies": { changeFrequency: "daily", priority: 0.9 },
+  "/terms": { changeFrequency: "daily", priority: 0.9 },
 };
 
 const defaultMeta: RouteMeta = { changeFrequency: "monthly", priority: 0.5 };
