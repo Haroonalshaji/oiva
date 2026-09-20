@@ -81,6 +81,9 @@ export const products: Product[] = [
   },
 ];
 
+/** Date the live catalog last changed. Used for sitemap lastmod. */
+export const catalogUpdatedAt = "2026-09-15";
+
 export const categories = ["All", "Tops", "Dresses", "Sets"];
 
 export function getProduct(slug: string): Product | undefined {

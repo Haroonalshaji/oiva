@@ -16,9 +16,11 @@ export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
 }
 
+export const dynamicParams = false;
+
 export function generateMetadata({ params }: Props): Metadata {
   const product = getProduct(params.slug);
-  if (!product) return { title: "Product not found" };
+  if (!product) notFound();
 
   return createPageMetadata({
     title: `${product.name} — Buy Online`,

@@ -15,9 +15,11 @@ export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
 }
 
+export const dynamicParams = false;
+
 export function generateMetadata({ params }: Props): Metadata {
   const post = getPost(params.slug);
-  if (!post) return { title: "Post not found" };
+  if (!post) notFound();
 
   return createPageMetadata({
     title: post.title,

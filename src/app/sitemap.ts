@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { products } from "@/data/products";
+import { catalogUpdatedAt, products } from "@/data/products";
 import { posts } from "@/data/posts";
 import { legalNavItems, navItems } from "@/data/site";
 import { canonicalUrl } from "@/lib/seo";
@@ -31,12 +31,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     new Set(["/", ...navItems.map((item) => item.href), ...legalNavItems.map((item) => item.href)]),
   );
 
-  const staticPages: MetadataRoute.Sitemap = staticPaths.map((path) =>
-    entry(path, path === "/journal" && newestJournal ? { lastModified: newestJournal } : {}),
-  );
+  const staticPages: MetadataRoute.Sitemap = staticPaths.map((path) => {
+    const lastModified =
+      path === "/journal"
+        ? newestJournal
+        : path === "/products"
+          ? catalogUpdatedAt
+          : undefined;
+    return entry(path, lastModified ? { lastModified } : {});
+  });
 
   const productPages: MetadataRoute.Sitemap = products.map((product) =>
-    entry(`/products/${product.slug}`),
+    entry(`/products/${product.slug}`, { lastModified: catalogUpdatedAt }),
   );
 
   const journalPages: MetadataRoute.Sitemap = posts.map((post) =>
