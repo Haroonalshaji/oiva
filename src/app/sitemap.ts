@@ -18,8 +18,8 @@ function entry(
 ): MetadataRoute.Sitemap[number] {
   return {
     url: canonicalUrl(path),
-    changeFrequency: "daily",
-    priority: path === "/" ? 1 : 0.9,
+    changeFrequency: "weekly",
+    priority: 1,
     ...extras,
   };
 }
